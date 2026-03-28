@@ -1,70 +1,53 @@
 const btn = document.getElementById("btn");
+const countEl = document.getElementById("count");
 const bar = document.getElementById("bar");
 const status = document.getElementById("status");
 
-let adDetected = false;
-let step = 0;
-
-// 🔍 PEGAR DESTINO
+// pegar destino
 const params = new URLSearchParams(window.location.search);
 let target = params.get("d");
 
-if(target){
-    sessionStorage.setItem("dest", target);
-} else {
+if (!target) {
     document.body.innerHTML = "Link inválido";
+    throw new Error("Sem destino");
 }
 
-// 🧠 DETECÇÃO INTELIGENTE (sem depender de ads)
-setTimeout(() => {
-    let test = document.createElement("div");
-    test.className = "adsbox";
-    document.body.appendChild(test);
-
-    if(test.offsetHeight === 0){
-        adDetected = true;
+// decode
+function getFinal(){
+    try {
+        return atob(target);
+    } catch {
+        return target;
     }
+}
 
-    test.remove();
-}, 1500);
+// contador
+let time = 4;
 
-// ⏳ PROGRESSO
 let interval = setInterval(() => {
-    step += 10;
-    bar.style.width = step + "%";
+    time--;
+    countEl.innerText = time;
+    bar.style.width = (100 - time * 20) + "%";
 
-    if(step >= 100){
+    if (time <= 0) {
         clearInterval(interval);
-        liberar();
+        btn.disabled = false;
+        btn.classList.add("active");
+        btn.innerText = "Continuar";
+        status.innerText = "Pronto para prosseguir";
     }
-}, 500);
+}, 1000);
 
-// 🔓 LIBERAR COM CONTROLE
-function liberar(){
-    btn.disabled = false;
-
-    if(adDetected){
-        status.innerText = "Verificação mais lenta detectada...";
-    } else {
-        status.innerText = "Pronto para continuar";
-    }
-
-    btn.innerText = "CONTINUAR";
-}
-
-// 🖱️ CLICK
+// clique
 btn.onclick = () => {
 
-    // 💰 fallback monetização
-    window.open("https://omg10.com/4/9975998", "_blank");
-
-    let delay = adDetected ? 6000 : 2000;
+    // 👉 COLOCA SEU LINK DE MONETIZAÇÃO AQUI
+    window.open("https://SEU-LINK-AQUI.com", "_blank");
 
     btn.disabled = true;
-    btn.innerText = "Processando...";
+    btn.innerText = "Redirecionando...";
 
     setTimeout(() => {
-        const final = sessionStorage.getItem("dest");
-        window.location.href = final;
-    }, delay);
+        window.location.href = getFinal();
+    }, 2500);
 };
