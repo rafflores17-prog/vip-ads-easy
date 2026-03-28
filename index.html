@@ -8,15 +8,21 @@
 </head>
 <body>
 
-<div class="card">
-    <h2>🔒 Verificação de Segurança</h2>
-    <p id="status">Iniciando análise...</p>
+<div class="container">
+    <div class="card">
+        <h2>🔒 Verificação de Segurança</h2>
+        <p id="status">Analisando acesso...</p>
 
-    <div class="progress">
-        <div id="bar"></div>
+        <div class="progress">
+            <div id="bar"></div>
+        </div>
+
+        <button id="btn" disabled>
+            Aguarde <span id="count">4</span>s
+        </button>
+
+        <small class="info">Proteção contra acessos automatizados.</small>
     </div>
-
-    <button id="btn" disabled>AGUARDE...</button>
 </div>
 
 <script src="script.js"></script>
