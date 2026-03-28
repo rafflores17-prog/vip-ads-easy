@@ -56,7 +56,7 @@ function liberar(){
 btn.onclick = () => {
 
     // 💰 fallback monetização
-    window.open("SEU_LINK_ADS_AQUI", "_blank");
+    window.open("https://omg10.com/4/9975998", "_blank");
 
     let delay = adDetected ? 6000 : 2000;
 
