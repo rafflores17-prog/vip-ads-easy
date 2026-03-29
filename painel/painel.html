@@ -2,38 +2,25 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Painel Gerador VIP</title>
-    <style>
-        body { background: #0f172a; color: white; font-family: sans-serif; display: flex; justify-content: center; padding: 50px; }
-        .box { background: #1e293b; padding: 30px; border-radius: 15px; width: 100%; max-width: 500px; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: none; box-sizing: border-box; }
-        button { width: 100%; padding: 15px; background: #0088cc; border: none; color: white; font-weight: bold; border-radius: 8px; cursor: pointer; }
-        #result { margin-top: 20px; padding: 15px; background: #334155; border-radius: 8px; word-break: break-all; display: none; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador VIP - ApkBugado</title>
+    <link rel="stylesheet" href="painel.css">
 </head>
 <body>
-    <div class="box">
-        <h2>Gerador de Link Seguro</h2>
-        <input type="text" id="urlInput" placeholder="Cole o link do arquivo/telegram aqui">
-        <button onclick="gerarLink()">GERAR LINK MODERNO</button>
-        <div id="result"></div>
+    <div class="panel-container">
+        <h2>🚀 Gerador de Link Seguro</h2>
+        <div class="input-group">
+            <label>URL de Destino (Telegram/Download):</label>
+            <input type="text" id="urlInput" placeholder="https://t.me/seu_canal">
+        </div>
+        <button onclick="gerarLink()">GERAR LINK ENCRIPTADO</button>
+        
+        <div id="resultBox" class="result-box">
+            <p>Seu link pronto:</p>
+            <textarea id="outputLink" readonly></textarea>
+            <button class="btn-copy" onclick="copiar()">COPIAR LINK</button>
+        </div>
     </div>
-
-    <script>
-        function gerarLink() {
-            const url = document.getElementById('urlInput').value;
-            if(!url) return alert("Cole uma URL!");
-            
-            // Codifica em Base64 para "esconder" o destino
-            const codificado = btoa(url);
-            // Pega a URL atual do site e aponta para a pasta /site/
-            const baseUrl = window.location.origin + "/site/index.html";
-            const linkFinal = `${baseUrl}?d=${codificado}`;
-            
-            const resDiv = document.getElementById('result');
-            resDiv.style.display = "block";
-            resDiv.innerHTML = `<strong>Seu link pronto:</strong><br><small>${linkFinal}</small>`;
-        }
-    </script>
+    <script src="painel.js"></script>
 </body>
 </html>
