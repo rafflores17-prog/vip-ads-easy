@@ -2,23 +2,17 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador VIP - ApkBugado</title>
+    <title>Painel Gerador</title>
     <link rel="stylesheet" href="painel.css">
 </head>
 <body>
     <div class="panel-container">
         <h2>🚀 Gerador de Link Seguro</h2>
-        <div class="input-group">
-            <label>URL de Destino (Telegram/Download):</label>
-            <input type="text" id="urlInput" placeholder="https://t.me/seu_canal">
-        </div>
-        <button onclick="gerarLink()">GERAR LINK ENCRIPTADO</button>
-        
-        <div id="resultBox" class="result-box">
-            <p>Seu link pronto:</p>
+        <input type="text" id="urlInput" placeholder="Cole o link do Telegram/Arquivo">
+        <button onclick="gerarLink()">GERAR LINK</button>
+        <div id="resultBox" style="display:none; margin-top:20px;">
             <textarea id="outputLink" readonly></textarea>
-            <button class="btn-copy" onclick="copiar()">COPIAR LINK</button>
+            <button onclick="copiar()" style="background:#475569; margin-top:10px;">COPIAR LINK</button>
         </div>
     </div>
     <script src="painel.js"></script>
