@@ -1,28 +1,21 @@
-const generateBtn = document.getElementById('generateBtn');
-const realLinkInput = document.getElementById('realLink');
-const historyDiv = document.getElementById('history');
+function gerarLink() {
+    const url = document.getElementById('urlInput').value;
+    if(!url) return alert("Insira uma URL válida!");
 
-generateBtn.addEventListener('click', async () => {
-    const url = realLinkInput.value.trim();
-    if(!url) return alert('Cole um link válido!');
+    // Codifica a URL em Base64 para passar pelo parâmetro 'd'
+    const encoded = btoa(url);
     
-    // cria ID curto aleatório
-    const id = Math.random().toString(36).substr(2,6).toUpperCase();
+    // Define a rota do site principal (ajusta automaticamente no Vercel)
+    const baseUrl = window.location.origin + "/site/index.html";
+    const finalLink = `${baseUrl}?d=${encoded}`;
 
-    // envia para API do site principal
-    try {
-        const res = await fetch('/site/api/links', {
-            method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({ id, url })
-        });
-        const data = await res.json();
-        if(data.success){
-            historyDiv.innerHTML += `<div>${id} → <a href="${url}" target="_blank">${url}</a></div>`;
-            realLinkInput.value = '';
-        }
-    } catch(err) {
-        alert('Erro ao gerar link');
-        console.error(err);
-    }
-});
+    document.getElementById('resultBox').style.display = "block";
+    document.getElementById('outputLink').value = finalLink;
+}
+
+function copiar() {
+    const copyText = document.getElementById("outputLink");
+    copyText.select();
+    document.execCommand("copy");
+    alert("Link copiado para a área de transferência!");
+}
