@@ -1,6 +1,7 @@
+/* Layout moderno Black/Elite */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #111;
+    background-color: #121212;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -12,11 +13,13 @@ body {
     width: 90%;
     max-width: 450px;
     text-align: center;
-    background: #1a1a1a;
+    background: #1e1e1e;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
 }
+
+h1 { color: #8b5cf6; }
 
 .progress-bar {
     width: 100%;
