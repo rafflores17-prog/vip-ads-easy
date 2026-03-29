@@ -1,53 +1,39 @@
-const btn = document.getElementById("btn");
-const countEl = document.getElementById("count");
-const bar = document.getElementById("bar");
-const status = document.getElementById("status");
+const fill = document.getElementById("fill");
+const statusText = document.getElementById("status-text");
+const continueBtn = document.getElementById("continue-btn");
 
-// pegar destino
-const params = new URLSearchParams(window.location.search);
-let target = params.get("d");
+// Mapa de IDs curtos -> base64 (do painel)
+const linksMap = {
+    "CWFFO8": "aHR0cHM6Ly9kZXZ1cGxvYWRzLmNvbS8wMnA3ZXh3b2x4ejM=",
+    // Adicione outros IDs aqui
+};
 
-if (!target) {
-    document.body.innerHTML = "Link inválido";
-    throw new Error("Sem destino");
+// Pegar ID curto da URL
+const path = window.location.pathname.split("/");
+let shortID = path[path.length - 1];
+
+// Verifica se o ID existe
+if (!linksMap[shortID]) {
+    document.body.innerHTML = "<h2 style='text-align:center;margin-top:100px;'>Link inválido ou expirado.</h2>";
+} else {
+    const targetBase64 = linksMap[shortID];
+    const targetURL = atob(targetBase64);
+
+    let progress = 0;
+    const timer = setInterval(() => {
+        progress += 10;
+        fill.style.width = progress + "%";
+        statusText.innerText = `Verificando sistema... ${progress}%`;
+
+        if(progress >= 100) {
+            clearInterval(timer);
+            continueBtn.disabled = false;
+            continueBtn.innerText = "CONTINUAR PARA DOWNLOAD";
+        }
+    }, 500);
 }
 
-// decode
-function getFinal(){
-    try {
-        return atob(target);
-    } catch {
-        return target;
-    }
-}
-
-// contador
-let time = 4;
-
-let interval = setInterval(() => {
-    time--;
-    countEl.innerText = time;
-    bar.style.width = (100 - time * 20) + "%";
-
-    if (time <= 0) {
-        clearInterval(interval);
-        btn.disabled = false;
-        btn.classList.add("active");
-        btn.innerText = "Continuar";
-        status.innerText = "Pronto para prosseguir";
-    }
-}, 1000);
-
-// clique
-btn.onclick = () => {
-
-    // 👉 COLOCA SEU LINK DE MONETIZAÇÃO AQUI
-    window.open("https://SEU-LINK-AQUI.com", "_blank");
-
-    btn.disabled = true;
-    btn.innerText = "Redirecionando...";
-
-    setTimeout(() => {
-        window.location.href = getFinal();
-    }, 2500);
+continueBtn.onclick = () => {
+    // Adicionar aqui o seu script de ads se quiser
+    window.location.href = atob(linksMap[shortID]); // Redireciona para link real
 };
