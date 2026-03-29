@@ -1,27 +1,8 @@
-/* site.css */
-body { 
-    background-color: #020617; 
-    background-image: radial-gradient(rgba(0, 136, 204, 0.15) 1px, transparent 1px);
-    background-size: 25px 25px;
-    color: #fff; font-family: 'Roboto', sans-serif; margin: 0; padding: 20px;
-    display: flex; flex-direction: column; align-items: center; min-height: 100vh;
-}
-
-.top-spacer { height: 130px; }
-
-.card { 
-    background: #ffffff; color: #1e293b; width: 100%; max-width: 420px; 
-    border-radius: 20px; padding: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.7); 
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.btn-vip { 
-    background: #0088cc; color: #fff; border: none; padding: 20px; 
-    border-radius: 12px; font-weight: bold; font-size: 17px; 
-    box-shadow: 0 5px 0 #005f8d; width: 100%; cursor: pointer;
-}
-
-.btn-vip:disabled { background: #64748b; box-shadow: none; opacity: 0.6; }
-
-.progress-bar { background: #e2e8f0; height: 12px; border-radius: 6px; overflow: hidden; margin-top: 15px; }
-.fill { width: 5%; height: 100%; background: linear-gradient(90deg, #0088cc, #22c55e); transition: width 0.5s; }
+body { background: #020617; background-image: radial-gradient(rgba(0,136,204,0.1) 1px, transparent 1px); background-size: 25px 25px; color: #fff; font-family: sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+.top-spacer { height: 120px; }
+.card { background: #fff; color: #1e293b; width: 100%; max-width: 420px; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); box-sizing: border-box; }
+.status-info { background: #f1f5f9; padding: 10px; border-radius: 8px; border-left: 5px solid #0088cc; font-size: 14px; }
+.progress-bar { background: #e2e8f0; height: 10px; border-radius: 5px; overflow: hidden; margin: 15px 0; }
+.fill { width: 5%; height: 100%; background: #0088cc; transition: width 0.5s; }
+.btn-vip { width: 100%; padding: 20px; border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; background: #0088cc; color: #fff; box-shadow: 0 5px 0 #005f8d; }
+.btn-vip:disabled { background: #64748b; box-shadow: none; cursor: not-allowed; }
