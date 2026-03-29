@@ -1,25 +1,15 @@
-const btn = document.getElementById('mainBtn');
+const params = new URLSearchParams(window.location.search);
+let id = params.get('d');
 
-// pega ID da URL
-const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get('d') || urlParams.get('id');
-
-if(!id) {
-    btn.innerText = "Link Inválido";
-} else {
-    fetch(`/api/links?id=${id}`)
-        .then(res => res.json())
-        .then(data => {
-            if(data.url){
-                btn.disabled = false;
-                btn.innerText = "Clique para acessar";
-                btn.onclick = () => window.location.href = data.url;
-            } else {
-                btn.innerText = "Link não encontrado";
-            }
-        })
-        .catch(err => {
-            btn.innerText = "Erro ao carregar";
-            console.error(err);
-        });
-}
+fetch('api/links.json')
+  .then(res => res.json())
+  .then(data => {
+      if(data[id]){
+          // Redireciona após contador
+          document.getElementById('main-btn').onclick = () => {
+              window.location.href = data[id];
+          }
+      } else {
+          alert('Link não encontrado');
+      }
+  });
