@@ -2,12 +2,12 @@ const fill = document.getElementById("fill");
 const statusText = document.getElementById("status-text");
 const continueBtn = document.getElementById("continue-btn");
 
-// Pegar ID curto da URL
+// Pegar ID curto da URL (/lk/ID)
 const pathParts = window.location.pathname.split("/");
 const shortID = pathParts[pathParts.length - 1];
 
-// Buscar links do painel (suba links.json do painel no Vercel ou use fetch)
-fetch("https://painel-links-iota.vercel.app/links.json")
+// Buscar links do JSON do site principal
+fetch("/links.json")
     .then(res => res.json())
     .then(linksMap => {
         const targetURL = linksMap[shortID];
