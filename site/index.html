@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Site Principal</title>
-<link rel="stylesheet" href="site.css">
+    <meta charset="UTF-8">
+    <title>Painel Gerador VIP</title>
+    <style>
+        body { background: #0f172a; color: white; font-family: sans-serif; display: flex; justify-content: center; padding: 50px; }
+        .box { background: #1e293b; padding: 30px; border-radius: 15px; width: 100%; max-width: 500px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: none; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: #0088cc; border: none; color: white; font-weight: bold; border-radius: 8px; cursor: pointer; }
+        #result { margin-top: 20px; padding: 15px; background: #334155; border-radius: 8px; word-break: break-all; display: none; }
+    </style>
 </head>
 <body>
-<div class="center">
-    <h2>Verificação de Link</h2>
-    <button id="mainBtn" disabled>AGUARDANDO...</button>
-</div>
-<script src="site.js"></script>
+    <div class="box">
+        <h2>Gerador de Link Seguro</h2>
+        <input type="text" id="urlInput" placeholder="Cole o link do arquivo/telegram aqui">
+        <button onclick="gerarLink()">GERAR LINK MODERNO</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function gerarLink() {
+            const url = document.getElementById('urlInput').value;
+            if(!url) return alert("Cole uma URL!");
+            
+            // Codifica em Base64 para "esconder" o destino
+            const codificado = btoa(url);
+            // Pega a URL atual do site e aponta para a pasta /site/
+            const baseUrl = window.location.origin + "/site/index.html";
+            const linkFinal = `${baseUrl}?d=${codificado}`;
+            
+            const resDiv = document.getElementById('result');
+            resDiv.style.display = "block";
+            resDiv.innerHTML = `<strong>Seu link pronto:</strong><br><small>${linkFinal}</small>`;
+        }
+    </script>
 </body>
 </html>
