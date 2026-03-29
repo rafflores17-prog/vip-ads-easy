@@ -4,7 +4,7 @@ let d = params.get('d') || sessionStorage.getItem('link_vip');
 if (d) {
     sessionStorage.setItem('link_vip', d);
 } else {
-    document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:50px;'>Link Inválido</h2>";
+    document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:100px;'>Link Inválido</h2>";
 }
 
 const btn = document.getElementById("main-btn");
@@ -13,8 +13,8 @@ const statusTxt = document.getElementById("status-txt");
 
 // PRIMEIRA ETAPA
 btn.onclick = function() {
-    // Abre o seu anúncio em nova aba
-    window.open("https://omg10.com/4/9975998", "_blank");
+    // Abre o Direct Link Novo (Etapa 1)
+    window.open("https://encouragingjawsordinarily.com/w3wbwkzk9?key=9f27a177c445f12758a69d7273fe6f04", "_blank");
     
     this.disabled = true;
     this.innerText = "AGUARDE...";
@@ -26,13 +26,13 @@ btn.onclick = function() {
         this.innerText = "CONTINUAR";
         this.disabled = false;
         this.onclick = etapaFinal;
-    }, 2500);
+    }, 3000);
 };
 
 // ETAPA FINAL
 function etapaFinal() {
-    // Abre o segundo anúncio
-    window.open("https://encouragingjawsordinarily.com/fxgzhb5e?key=3823c25827101f6ca9e1188db300506f", "_blank");
+    // Abre o Direct Link Novo novamente ou outro link de monetização
+    window.open("https://encouragingjawsordinarily.com/w3wbwkzk9?key=9f27a177c445f12758a69d7273fe6f04", "_blank");
     
     this.disabled = true;
     fill.style.width = "100%";
@@ -41,12 +41,12 @@ function etapaFinal() {
     setTimeout(() => {
         document.getElementById("pos-3").appendChild(this);
         this.innerText = "ACESSAR AGORA";
-        this.style.background = "#22c55e"; // Cor Verde
+        this.style.background = "#22c55e"; 
         this.disabled = false;
         
         this.onclick = () => {
             const finalLink = atob(sessionStorage.getItem('link_vip'));
             window.location.replace(finalLink);
         };
-    }, 2000);
+    }, 2500);
 }
