@@ -11,9 +11,15 @@ const btn = document.getElementById("main-btn");
 const fill = document.getElementById("fill");
 const statusTxt = document.getElementById("status-txt");
 
-// PRIMEIRA ETAPA
+// Função para levar a visão do usuário até o botão
+function focarNoBotao(elemento) {
+    setTimeout(() => {
+        elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 400);
+}
+
 btn.onclick = function() {
-    // Abre o Direct Link Novo (Etapa 1)
+    // Direct Link Adsterra
     window.open("https://encouragingjawsordinarily.com/w3wbwkzk9?key=9f27a177c445f12758a69d7273fe6f04", "_blank");
     
     this.disabled = true;
@@ -25,13 +31,12 @@ btn.onclick = function() {
         document.getElementById("pos-2").appendChild(this);
         this.innerText = "CONTINUAR";
         this.disabled = false;
+        focarNoBotao(this); // Foca no card
         this.onclick = etapaFinal;
     }, 3000);
 };
 
-// ETAPA FINAL
 function etapaFinal() {
-    // Abre o Direct Link Novo novamente ou outro link de monetização
     window.open("https://encouragingjawsordinarily.com/w3wbwkzk9?key=9f27a177c445f12758a69d7273fe6f04", "_blank");
     
     this.disabled = true;
@@ -39,10 +44,12 @@ function etapaFinal() {
     statusTxt.innerText = "Acesso Liberado!";
 
     setTimeout(() => {
+        // MOVE O BOTÃO PARA O DESTINO FINAL (FORA DO CARD)
         document.getElementById("pos-3").appendChild(this);
         this.innerText = "ACESSAR AGORA";
         this.style.background = "#22c55e"; 
         this.disabled = false;
+        focarNoBotao(this); // Rola a página até o final
         
         this.onclick = () => {
             const finalLink = atob(sessionStorage.getItem('link_vip'));
