@@ -3,26 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Verificação Segura</title>
+<title>Download Protegido</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <div class="card">
-        <h2>🔒 Verificação de Segurança</h2>
-        <p id="status">Analisando acesso...</p>
-
-        <div class="progress">
-            <div id="bar"></div>
-        </div>
-
-        <button id="btn" disabled>
-            Aguarde <span id="count">4</span>s
-        </button>
-
-        <small class="info">Proteção contra acessos automatizados.</small>
+    <h1>Verificação de Download</h1>
+    <div class="status-box">
+        <span id="status-text">Aguardando análise...</span>
     </div>
+    <div class="progress-bar"><div id="fill" class="fill"></div></div>
+    <button id="continue-btn" class="btn-purple" disabled>AGUARDE...</button>
 </div>
 
 <script src="script.js"></script>
