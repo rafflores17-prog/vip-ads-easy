@@ -29,6 +29,7 @@ fetch("/links.json")
             }
         }, 500);
 
+        // Botão redireciona para link real
         continueBtn.onclick = () => {
             window.location.href = targetURL;
         };
