@@ -1,3 +1,4 @@
+// Captura o parâmetro 'd' da URL ou recupera do sessionStorage
 const params = new URLSearchParams(window.location.search);
 let d = params.get('d') || sessionStorage.getItem('link_vip');
 
@@ -11,15 +12,16 @@ const btn = document.getElementById("main-btn");
 const fill = document.getElementById("fill");
 const statusTxt = document.getElementById("status-txt");
 
-// Função para levar a visão do usuário até o botão
+// Função para rolar a tela suavemente até o botão
 function focarNoBotao(elemento) {
     setTimeout(() => {
         elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 400);
 }
 
+// ETAPA 1: Primeiro clique e Adsterra
 btn.onclick = function() {
-    // Direct Link Adsterra
+    // Abre seu Direct Link Adsterra
     window.open("https://encouragingjawsordinarily.com/w3wbwkzk9?key=9f27a177c445f12758a69d7273fe6f04", "_blank");
     
     this.disabled = true;
@@ -31,11 +33,12 @@ btn.onclick = function() {
         document.getElementById("pos-2").appendChild(this);
         this.innerText = "CONTINUAR";
         this.disabled = false;
-        focarNoBotao(this); // Foca no card
+        focarNoBotao(this);
         this.onclick = etapaFinal;
     }, 3000);
 };
 
+// ETAPA FINAL: Segundo clique e Redirecionamento para a SAFE
 function etapaFinal() {
     window.open("https://encouragingjawsordinarily.com/w3wbwkzk9?key=9f27a177c445f12758a69d7273fe6f04", "_blank");
     
@@ -44,16 +47,19 @@ function etapaFinal() {
     statusTxt.innerText = "Acesso Liberado!";
 
     setTimeout(() => {
-        // MOVE O BOTÃO PARA O DESTINO FINAL (FORA DO CARD)
+        // Move o botão para a área final
         document.getElementById("pos-3").appendChild(this);
         this.innerText = "ACESSAR AGORA";
         this.style.background = "#22c55e"; 
         this.disabled = false;
-        focarNoBotao(this); // Rola a página até o final
+        focarNoBotao(this);
         
+        // AQUI A MÁGICA ACONTECE:
+        // Em vez de ir pro arquivo, ele vai para a Safe carregando o Base64
         this.onclick = () => {
-            const finalLink = atob(sessionStorage.getItem('link_vip'));
-            window.location.replace(finalLink);
+            const linkBase64 = sessionStorage.getItem('link_vip');
+            const safeUrl = "https://apkbugadovip.vercel.app/safe/index.html?d=" + linkBase64;
+            window.location.replace(safeUrl);
         };
     }, 2500);
 }
