@@ -10,34 +10,36 @@
     <link rel="stylesheet" href="/site/site.css">
 
     <style>
-        /* Ajustes específicos para a página de Safe */
-        .conteudo-safe {
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            z-index: 10;
+        /* Ajustes específicos para a Safe Premium */
+        body { display: flex; flex-direction: column; align-items: center; }
+        .conteudo-safe { width: 90%; max-width: 400px; text-align: center; z-index: 10; padding-bottom: 50px; }
+        .instrucao { color: #cbd5e1; font-size: 14px; margin: 10px 0 20px; }
+        
+        /* Área do Botão com Mini-Contador */
+        .btn-container { margin: 20px 0; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .mini-timer { font-size: 12px; color: #94a3b8; margin-bottom: 5px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Botão com Relevo 3D e Brilho Pulsante */
+        .btn-vip-safe { 
+            text-decoration: none; display: none; width: 100%; padding: 18px; border: none; 
+            border-radius: 15px; font-size: 18px; font-weight: bold; 
+            cursor: pointer; background: #0088cc; color: #fff; 
+            text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 6px 0 #005f8d, 0 0 15px rgba(0, 136, 204, 0.6); /* Relevo e Glow Inicial */
+            transition: 0.2s; animation: glowPulse 2s infinite; 
         }
-        .instrucao {
-            color: #cbd5e1;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        .timer-circular {
-            font-size: 32px;
-            font-weight: bold;
-            color: #0088cc;
-            margin: 20px 0;
-            text-shadow: 0 0 10px rgba(0, 136, 204, 0.5);
-        }
-        #box-dica {
-            text-align: left;
-            margin-top: 15px;
-        }
-        .btn-vip {
-            text-decoration: none;
-            display: none; /* Escondido até o timer zerar */
-            line-height: 1.5;
-        }
+        .btn-vip-safe:active { transform: translateY(3px); box-shadow: 0 3px 0 #005f8d, 0 0 10px rgba(0, 136, 204, 0.4); }
+        
+        /* Cor Verde quando Ativo */
+        .btn-vip-safe.ativo { background: #22c55e; box-shadow: 0 6px 0 #166534, 0 0 20px rgba(34, 197, 94, 0.7); animation: glowPulseGreen 2s infinite; }
+        .btn-vip-safe.ativo:active { transform: translateY(3px); box-shadow: 0 3px 0 #166534, 0 0 15px rgba(34, 197, 94, 0.5); }
+
+        /* Animações de Brilho */
+        @keyframes glowPulse { 0% { box-shadow: 0 6px 0 #005f8d, 0 0 15px rgba(0, 136, 204, 0.6); } 50% { box-shadow: 0 6px 0 #005f8d, 0 0 25px rgba(0, 136, 204, 0.9); } 100% { box-shadow: 0 6px 0 #005f8d, 0 0 15px rgba(0, 136, 204, 0.6); } }
+        @keyframes glowPulseGreen { 0% { box-shadow: 0 6px 0 #166534, 0 0 20px rgba(34, 197, 94, 0.7); } 50% { box-shadow: 0 6px 0 #166534, 0 0 30px rgba(34, 197, 94, 1); } 100% { box-shadow: 0 6px 0 #166534, 0 0 20px rgba(34, 197, 94, 0.7); } }
+
+        /* Ajustes nos Cards de Dica */
+        #box-dica { text-align: left; margin-top: 15px; border-left-color: #22c55e; background: #f8fafc; }
     </style>
 </head>
 <body>
@@ -52,30 +54,29 @@
     <div class="conteudo-safe">
         <p class="instrucao">Aguarde a sincronização dos servidores para liberar seu arquivo final.</p>
 
-        <div style="margin-bottom: 15px;">
+        <div style="margin-bottom: 15px; min-height: 100px;">
             <script async="async" data-cfasync="false" src="https://encouragingjawsordinarily.com/229016a21e1a937d798a4dd66405699f/invoke.js"></script>
             <div id="container-229016a21e1a937d798a4dd66405699f"></div>
         </div>
 
         <div class="card">
             <div class="status-info">
-                <b>🛡️ SEGURANÇA:</b> <span id="status-txt">Verificando integridade...</span>
+                <b>🛡️ SEGURANÇA:</b> <span id="status-txt">Sincronizando...</span>
             </div>
             
-            <div class="progress-bar"><div id="fill" class="fill"></div></div>
+            <div class="progress-bar"><div id="fill" class="fill" style="width: 0%;"></div></div>
 
-            <div id="box-dica" class="status-info" style="border-left-color: #22c55e; background: #f8fafc;">
-                <span id="texto-dica">Carregando dica de segurança...</span>
+            <div id="box-dica" class="status-info">
+                <span id="texto-dica">Carregando informações VIP...</span>
             </div>
         </div>
 
-        <div class="timer-circular" id="msg-timer">
-            <span id="countdown">15</span>s
+        <div class="btn-container" id="safe-bottom">
+            <div class="mini-timer" id="timer-text">Aguarde <span id="countdown">15</span>s para liberar...</div>
+            <a href="#" id="main-btn" class="btn-vip-safe">CONCLUIR DOWNLOAD</a>
         </div>
 
-        <a href="#" id="main-btn" class="btn-vip">CONCLUIR DOWNLOAD</a>
-
-        <div style="margin-top: 25px;">
+        <div style="margin-top: 10px; min-height: 50px;">
             <script type="text/javascript">
                 atOptions = {'key' : 'a26a53bd8a24eb97c19e90af91d99fe8','format' : 'iframe','height' : 50,'width' : 320,'params' : {}};
             </script>
@@ -84,26 +85,27 @@
     </div>
 
     <script>
-        // SISTEMA DE DICAS DINÂMICAS
-        const dicas = [
-            "DICA: Desinstale versões antigas antes de instalar o novo APK.",
-            "DICA: Limpe o cache do seu navegador para downloads mais rápidos.",
-            "DICA: Verifique se a opção 'Fontes Desconhecidas' está ativa.",
-            "DICA: Mantenha seu Android com pelo menos 1GB livre para a instalação.",
-            "DICA: Use o MT Manager para gerenciar seus arquivos modificados."
+        // NOVO SISTEMA DE DICAS DINÂMICAS VIP
+        const dicasVip = [
+            "VIP: Tenha acesso antecipado a todos os MODs no nosso grupo exclusivo.",
+            "VPN: Proteja sua conexão e navegue anonimamente com nossa VPN Premium.",
+            "IPTV: Mais de 50.000 canais, filmes e séries em HD. Peça seu teste grátis!",
+            "SUPORTE: Dúvidas na instalação? Nosso time VIP te ajuda via Telegram.",
+            "OFERTA: Assine o combo IPTV + VPN com desconto exclusivo para membros."
         ];
-        document.getElementById('texto-dica').textContent = dicas[Math.floor(Math.random() * dicas.length)];
+        document.getElementById('texto-dica').textContent = dicasVip[Math.floor(Math.random() * dicasVip.length)];
 
-        // LÓGICA DE REDIRECIONAMENTO
+        // LÓGICA DE REDIRECIONAMENTO E VISUAL
         const params = new URLSearchParams(window.location.search);
         const b64 = params.get('d');
         const finalDest = b64 ? atob(b64) : "https://apkbugadovip.vercel.app";
 
-        let tempo = 15;
+        let tempo = 15; // Você pode mudar para 10 se preferir
         const countEl = document.getElementById('countdown');
         const fillEl = document.getElementById('fill');
         const btnEl = document.getElementById('main-btn');
-        const msgTimer = document.getElementById('msg-timer');
+        const miniTimerEl = document.getElementById('timer-text');
+        const statusTxtEl = document.getElementById('status-txt');
 
         const timer = setInterval(() => {
             tempo--;
@@ -115,10 +117,20 @@
 
             if(tempo <= 0) {
                 clearInterval(timer);
-                msgTimer.style.display = 'none';
-                document.getElementById('status-txt').textContent = "Download Liberado!";
+                
+                // Esconde o mini-contador e mostra o botão
+                miniTimerEl.style.display = 'none';
+                statusTxtEl.textContent = "Download Liberado!";
+                statusTxtEl.style.color = "#22c55e";
+                
                 btnEl.href = finalDest;
                 btnEl.style.display = 'block';
+                btnEl.classList.add('ativo'); // Ativa a cor verde e o glow green
+
+                // Foco Automático no Botão (Smooth Scroll)
+                setTimeout(() => {
+                    document.getElementById('safe-bottom').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
             }
         }, 1000);
     </script>
