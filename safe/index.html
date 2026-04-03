@@ -6,80 +6,121 @@
     <title>Download Seguro - ApkBugado</title>
     
     <script src="https://quge5.com/88/tag.min.js" data-zone="224545" async data-cfasync="false"></script>
+    
+    <link rel="stylesheet" href="/site/site.css">
 
     <style>
-        body { font-family: 'Roboto', sans-serif; background-color: #e9ecef; margin: 0; padding: 10px; }
-        .card-noticia { max-width: 500px; margin: 15px auto; background: #fff; border-radius: 8px; overflow: hidden; shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .header-img { width: 100%; height: 180px; background: #27ae60; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px; text-align: center; padding: 10px; box-sizing: border-box; }
-        .conteudo { padding: 20px; }
-        h2 { color: #1a1a1a; font-size: 1.3rem; margin-top: 0; }
-        .dica-box { background: #fff8e1; border-left: 4px solid #ffc107; padding: 10px; margin: 15px 0; font-size: 14px; }
-        
-        .ad-area { background: #f8f9fa; border: 1px solid #ddd; margin: 15px 0; text-align: center; min-height: 100px; }
-        
-        .timer-box { text-align: center; padding: 20px; background: #f1f3f5; border-radius: 8px; }
-        #countdown { font-size: 28px; color: #d63031; font-weight: bold; }
-        
-        .btn-final { display: none; background: #2ecc71; color: white; padding: 18px; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center; font-size: 18px; box-shadow: 0 4px 0 #27ae60; width: 100%; box-sizing: border-box; }
-        .btn-final:active { transform: translateY(3px); box-shadow: none; }
+        /* Ajustes específicos para a página de Safe */
+        .conteudo-safe {
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            z-index: 10;
+        }
+        .instrucao {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .timer-circular {
+            font-size: 32px;
+            font-weight: bold;
+            color: #0088cc;
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(0, 136, 204, 0.5);
+        }
+        #box-dica {
+            text-align: left;
+            margin-top: 15px;
+        }
+        .btn-vip {
+            text-decoration: none;
+            display: none; /* Escondido até o timer zerar */
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
 
-<div class="card-noticia">
-    <div class="header-img">
-        ✅ LINK VERIFICADO PELO SISTEMA ANTIVÍRUS
+    <div class="acervo-banner">
+        <h2>★ DOWNLOAD SEGURO ★</h2>
+        <p>Sistema de Verificação ApkBugado Ativo</p>
     </div>
 
-    <div class="conteudo">
-        <h2>Seu arquivo está pronto para ser baixado!</h2>
-        
-        <p style="font-size: 15px; color: #555;">O <b>ApkBugado</b> garante a integridade dos seus arquivos. Antes de prosseguir, confira essa dica importante:</p>
+    <div class="top-spacer"></div>
 
-        <div class="ad-area">
+    <div class="conteudo-safe">
+        <p class="instrucao">Aguarde a sincronização dos servidores para liberar seu arquivo final.</p>
+
+        <div style="margin-bottom: 15px;">
             <script async="async" data-cfasync="false" src="https://encouragingjawsordinarily.com/229016a21e1a937d798a4dd66405699f/invoke.js"></script>
             <div id="container-229016a21e1a937d798a4dd66405699f"></div>
         </div>
 
-        <div class="dica-box">
-            <b>DICA DO MESTRE:</b> Para evitar o erro de "App não instalado", lembre-se de desinstalar qualquer versão anterior do aplicativo antes de rodar o novo APK.
+        <div class="card">
+            <div class="status-info">
+                <b>🛡️ SEGURANÇA:</b> <span id="status-txt">Verificando integridade...</span>
+            </div>
+            
+            <div class="progress-bar"><div id="fill" class="fill"></div></div>
+
+            <div id="box-dica" class="status-info" style="border-left-color: #22c55e; background: #f8fafc;">
+                <span id="texto-dica">Carregando dica de segurança...</span>
+            </div>
         </div>
 
-        <div class="timer-box">
-            <div id="msg">Sincronizando servidores em...<br><span id="countdown">15</span> segundos</div>
-            <a href="#" id="finish-btn" class="btn-final">BAIXAR AGORA (VIA CDN)</a>
+        <div class="timer-circular" id="msg-timer">
+            <span id="countdown">15</span>s
         </div>
 
-        <div class="ad-area" style="margin-top: 20px;">
+        <a href="#" id="main-btn" class="btn-vip">CONCLUIR DOWNLOAD</a>
+
+        <div style="margin-top: 25px;">
             <script type="text/javascript">
                 atOptions = {'key' : 'a26a53bd8a24eb97c19e90af91d99fe8','format' : 'iframe','height' : 50,'width' : 320,'params' : {}};
             </script>
             <script type="text/javascript" src="https://encouragingjawsordinarily.com/a26a53bd8a24eb97c19e90af91d99fe8/invoke.js"></script>
         </div>
     </div>
-</div>
 
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const b64 = urlParams.get('d');
-    const dest = b64 ? atob(b64) : "https://apkbugadovip.vercel.app";
+    <script>
+        // SISTEMA DE DICAS DINÂMICAS
+        const dicas = [
+            "DICA: Desinstale versões antigas antes de instalar o novo APK.",
+            "DICA: Limpe o cache do seu navegador para downloads mais rápidos.",
+            "DICA: Verifique se a opção 'Fontes Desconhecidas' está ativa.",
+            "DICA: Mantenha seu Android com pelo menos 1GB livre para a instalação.",
+            "DICA: Use o MT Manager para gerenciar seus arquivos modificados."
+        ];
+        document.getElementById('texto-dica').textContent = dicas[Math.floor(Math.random() * dicas.length)];
 
-    let tempo = 15;
-    const countEl = document.getElementById('countdown');
-    const msgEl = document.getElementById('msg');
-    const btnEl = document.getElementById('finish-btn');
+        // LÓGICA DE REDIRECIONAMENTO
+        const params = new URLSearchParams(window.location.search);
+        const b64 = params.get('d');
+        const finalDest = b64 ? atob(b64) : "https://apkbugadovip.vercel.app";
 
-    const timer = setInterval(() => {
-        tempo--;
-        countEl.textContent = tempo;
-        if(tempo <= 0) {
-            clearInterval(timer);
-            msgEl.style.display = 'none';
-            btnEl.href = dest;
-            btnEl.style.display = 'block';
-        }
-    }, 1000);
-</script>
+        let tempo = 15;
+        const countEl = document.getElementById('countdown');
+        const fillEl = document.getElementById('fill');
+        const btnEl = document.getElementById('main-btn');
+        const msgTimer = document.getElementById('msg-timer');
 
+        const timer = setInterval(() => {
+            tempo--;
+            countEl.textContent = tempo;
+            
+            // Atualiza a barra de progresso visualmente
+            let progresso = ((15 - tempo) / 15) * 100;
+            fillEl.style.width = progresso + "%";
+
+            if(tempo <= 0) {
+                clearInterval(timer);
+                msgTimer.style.display = 'none';
+                document.getElementById('status-txt').textContent = "Download Liberado!";
+                btnEl.href = finalDest;
+                btnEl.style.display = 'block';
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
