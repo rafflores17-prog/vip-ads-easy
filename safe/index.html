@@ -13,7 +13,9 @@
         body { display: flex; flex-direction: column; align-items: center; background-color: #020617; }
         .conteudo-safe { width: 90%; max-width: 400px; text-align: center; z-index: 10; padding-bottom: 80px; }
         
-        /* Aviso de Rolagem Animado */
+        /* Reserva de espaço para o Ad não empurrar o layout */
+        .ad-placeholder { min-height: 110px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); border-radius: 10px; }
+
         .aviso-scroll {
             color: #22c55e;
             font-size: 13px;
@@ -23,45 +25,23 @@
             display: block;
         }
 
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-        /* Container do Botão */
-        .btn-container { 
-            margin: 25px 0; 
-            min-height: 120px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-        }
+        .btn-container { margin: 25px 0; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 
         .btn-vip-safe { 
-            text-decoration: none; 
-            display: none; 
-            width: 100%; 
-            padding: 18px; 
-            border: none; 
-            border-radius: 15px; 
-            font-size: 18px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            background: #0088cc; 
-            color: #fff; 
+            text-decoration: none; display: none; width: 100%; padding: 18px; border: none; 
+            border-radius: 15px; font-size: 18px; font-weight: bold; 
+            cursor: pointer; background: #0088cc; color: #fff; 
             text-transform: uppercase;
             box-shadow: 0 6px 0 #005f8d, 0 0 15px rgba(0, 136, 204, 0.6);
             transition: 0.2s; 
-            animation: glowPulse 2s infinite; 
         }
 
-        .btn-vip-safe.ativo { 
-            background: #22c55e; 
-            box-shadow: 0 6px 0 #166534, 0 0 20px rgba(34, 197, 94, 0.7); 
-            animation: glowPulseGreen 2s infinite; 
-        }
-
-        @keyframes glowPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+        .btn-vip-safe.ativo { background: #22c55e; box-shadow: 0 6px 0 #166534, 0 0 20px rgba(34, 197, 94, 0.7); animation: glowPulseGreen 2s infinite; }
+        @keyframes glowPulseGreen { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
         
-        .status-erro { color: #ff4757 !important; font-weight: bold; border-left-color: #ff4757 !important; }
+        .status-erro { color: #ff4757 !important; font-weight: bold; border-left: 5px solid #ff4757 !important; background: #fee2e2 !important; }
     </style>
 </head>
 <body>
@@ -74,33 +54,33 @@
     <div class="top-spacer"></div>
 
     <div class="conteudo-safe">
-        <div id="ad-top-container" style="margin-bottom: 15px; min-height: 100px;">
+        <span class="aviso-scroll" id="scroll-msg">ROLE ATÉ O FINAL, O BOTÃO ESTÁ ABAIXO 👇</span>
+
+        <div class="ad-placeholder" id="ad-top-wrapper">
             <script async="async" data-cfasync="false" src="https://encouragingjawsordinarily.com/229016a21e1a937d798a4dd66405699f/invoke.js"></script>
             <div id="container-229016a21e1a937d798a4dd66405699f"></div>
         </div>
 
         <div class="card">
             <div class="status-info" id="box-status">
-                <b>🛡️ STATUS:</b> <span id="status-txt">Sincronizando...</span>
+                <b>🛡️ STATUS:</b> <span id="status-txt">Validando conexão...</span>
             </div>
             
             <div class="progress-bar"><div id="fill" class="fill" style="width: 0%;"></div></div>
 
             <div id="box-dica" class="status-info">
-                <span id="texto-dica">Carregando informações VIP...</span>
+                <span id="texto-dica">Carregando dicas VIP...</span>
             </div>
         </div>
 
-        <span class="aviso-scroll" id="scroll-msg">ROLE PARA BAIXO, SEU LINK ESTÁ ABAIXO 👇</span>
-
         <div class="btn-container" id="area-final">
-            <div id="timer-text" style="color: #cbd5e1; font-weight: bold; font-size: 14px;">
-                AGUARDE <span id="countdown" style="color: #0088cc; font-size: 20px;">15</span>s...
+            <div id="timer-text" style="color: #cbd5e1; font-weight: bold;">
+                LIBERANDO EM <span id="countdown" style="color: #0088cc; font-size: 22px;">15</span>s
             </div>
             <a href="#" id="main-btn" class="btn-vip-safe">CONCLUIR DOWNLOAD</a>
         </div>
 
-        <div style="margin-top: 10px; min-height: 50px;">
+        <div class="ad-placeholder" style="min-height: 60px; background: none;">
             <script type="text/javascript">
                 atOptions = {'key' : 'a26a53bd8a24eb97c19e90af91d99fe8','format' : 'iframe','height' : 50,'width' : 320,'params' : {}};
             </script>
@@ -123,6 +103,7 @@
         const finalDest = b64 ? atob(b64) : "https://apkbugadovip.vercel.app";
 
         let tempo = 15;
+        let tentativasAd = 0;
         const countEl = document.getElementById('countdown');
         const fillEl = document.getElementById('fill');
         const btnEl = document.getElementById('main-btn');
@@ -131,22 +112,31 @@
         const statusTxt = document.getElementById('status-txt');
         const boxStatus = document.getElementById('box-status');
 
-        // LÓGICA ANTI-ADBLOCK
+        // VERIFICAÇÃO INTELIGENTE DE ADBLOCK
         function checkAdBlock() {
             const adContainer = document.getElementById('container-229016a21e1a937d798a4dd66405699f');
-            if (!adContainer || adContainer.offsetHeight === 0) {
-                clearInterval(timer);
-                statusTxt.textContent = "BLOQUEADO! DESATIVE O ADBLOCK";
-                boxStatus.classList.add('status-erro');
-                timerText.style.display = 'none';
-                scrollMsg.innerHTML = "❌ ERRO: Anúncios bloqueados. Desative o AdBlock e recarregue!";
-                return true;
+            const estaVazio = !adContainer || adContainer.offsetHeight < 10;
+
+            if (estaVazio) {
+                tentativasAd++;
+                if (tentativasAd >= 3) { // Só bloqueia após 3 falhas (ajuda quem tem net lenta)
+                    clearInterval(timer);
+                    statusTxt.textContent = "ERRO: ANÚNCIOS BLOQUEADOS!";
+                    boxStatus.classList.add('status-erro');
+                    timerText.innerHTML = "<span style='color:#ff4757'>Desative o AdBlock/Brave para continuar</span>";
+                    scrollMsg.innerHTML = "❌ DOWNLOAD SUSPENSO: DESATIVE O BLOQUEADOR";
+                    return true;
+                }
+            } else {
+                statusTxt.textContent = "Sincronizado com Sucesso!";
+                statusTxt.style.color = "#0088cc";
             }
             return false;
         }
 
         const timer = setInterval(() => {
-            if (tempo === 12) checkAdBlock(); // Checa AdBlock logo no início
+            // Tenta verificar aos 12, 8 e 4 segundos restantes
+            if ([12, 8, 4].includes(tempo)) checkAdBlock();
 
             tempo--;
             countEl.textContent = tempo;
@@ -156,14 +146,13 @@
                 clearInterval(timer);
                 timerText.style.display = 'none';
                 scrollMsg.style.display = 'none';
-                statusTxt.textContent = "Download Liberado!";
+                statusTxt.textContent = "Pronto para baixar!";
                 statusTxt.style.color = "#22c55e";
                 
                 btnEl.href = finalDest;
                 btnEl.style.display = 'block';
                 btnEl.classList.add('ativo');
 
-                // FOCO AUTOMÁTICO
                 setTimeout(() => {
                     document.getElementById('area-final').scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 300);
