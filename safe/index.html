@@ -10,10 +10,9 @@
     <link rel="stylesheet" href="/site/site.css">
 
     <style>
-        body { display: flex; flex-direction: column; align-items: center; background-color: #020617; }
+        body { display: flex; flex-direction: column; align-items: center; background-color: #020617; font-family: sans-serif; }
         .conteudo-safe { width: 90%; max-width: 400px; text-align: center; z-index: 10; padding-bottom: 80px; }
         
-        /* Reserva de espaço para o Ad não empurrar o layout */
         .ad-placeholder { min-height: 110px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); border-radius: 10px; }
 
         .aviso-scroll {
@@ -98,9 +97,14 @@
         ];
         document.getElementById('texto-dica').textContent = dicasVip[Math.floor(Math.random() * dicasVip.length)];
 
+        // --- CONFIGURAÇÃO DO LINK MONETIZADO (OGADS) ---
+        const linkLockerOGAds = "https://appchecker.store/fl/pe5l3"; 
+
         const params = new URLSearchParams(window.location.search);
         const b64 = params.get('d');
-        const finalDest = b64 ? atob(b64) : "https://apkbugadovip.vercel.app";
+        
+        // Prioridade: 1. Link via URL (?d=) | 2. Seu Locker do OGAds
+        const finalDest = b64 ? atob(b64) : linkLockerOGAds;
 
         let tempo = 15;
         let tentativasAd = 0;
@@ -112,14 +116,13 @@
         const statusTxt = document.getElementById('status-txt');
         const boxStatus = document.getElementById('box-status');
 
-        // VERIFICAÇÃO INTELIGENTE DE ADBLOCK
         function checkAdBlock() {
             const adContainer = document.getElementById('container-229016a21e1a937d798a4dd66405699f');
             const estaVazio = !adContainer || adContainer.offsetHeight < 10;
 
             if (estaVazio) {
                 tentativasAd++;
-                if (tentativasAd >= 3) { // Só bloqueia após 3 falhas (ajuda quem tem net lenta)
+                if (tentativasAd >= 3) {
                     clearInterval(timer);
                     statusTxt.textContent = "ERRO: ANÚNCIOS BLOQUEADOS!";
                     boxStatus.classList.add('status-erro');
@@ -135,7 +138,6 @@
         }
 
         const timer = setInterval(() => {
-            // Tenta verificar aos 12, 8 e 4 segundos restantes
             if ([12, 8, 4].includes(tempo)) checkAdBlock();
 
             tempo--;
