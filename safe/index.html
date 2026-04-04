@@ -16,12 +16,8 @@
         .ad-placeholder { min-height: 110px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); border-radius: 10px; }
 
         .aviso-scroll {
-            color: #22c55e;
-            font-size: 13px;
-            font-weight: bold;
-            margin: 15px 0;
-            animation: blink 1.5s infinite;
-            display: block;
+            color: #22c55e; font-size: 13px; font-weight: bold; margin: 15px 0;
+            animation: blink 1.5s infinite; display: block;
         }
 
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
@@ -97,14 +93,10 @@
         ];
         document.getElementById('texto-dica').textContent = dicasVip[Math.floor(Math.random() * dicasVip.length)];
 
-        // --- CONFIGURAÇÃO DO LINK MONETIZADO (OGADS) ---
-        const linkLockerOGAds = "https://appchecker.store/fl/pe5l3"; 
-
+        // Lógica de Destino: Prioriza o link Base64 da URL (?d=)
         const params = new URLSearchParams(window.location.search);
         const b64 = params.get('d');
-        
-        // Prioridade: 1. Link via URL (?d=) | 2. Seu Locker do OGAds
-        const finalDest = b64 ? atob(b64) : linkLockerOGAds;
+        const finalDest = b64 ? atob(b64) : "https://apkbugadovip.vercel.app";
 
         let tempo = 15;
         let tentativasAd = 0;
@@ -126,7 +118,7 @@
                     clearInterval(timer);
                     statusTxt.textContent = "ERRO: ANÚNCIOS BLOQUEADOS!";
                     boxStatus.classList.add('status-erro');
-                    timerText.innerHTML = "<span style='color:#ff4757'>Desative o AdBlock/Brave para continuar</span>";
+                    timerText.innerHTML = "<span style='color:#ff4757'>Desative o AdBlock para continuar</span>";
                     scrollMsg.innerHTML = "❌ DOWNLOAD SUSPENSO: DESATIVE O BLOQUEADOR";
                     return true;
                 }
