@@ -55,10 +55,10 @@ function etapaFinal() {
         focarNoBotao(this);
         
         // AQUI A MÁGICA ACONTECE:
-        // Em vez de ir pro arquivo, ele vai para a Safe carregando o Base64
+        // Agora usando caminho relativo. Funciona em qualquer domínio!
         this.onclick = () => {
             const linkBase64 = sessionStorage.getItem('link_vip');
-            const safeUrl = "https://apkbugadovip.vercel.app/safe/index.html?d=" + linkBase64;
+            const safeUrl = "/safe/index.html?d=" + linkBase64;
             window.location.replace(safeUrl);
         };
     }, 2500);
