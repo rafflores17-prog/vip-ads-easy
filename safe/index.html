@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Seguro - ApkBugado</title>
     
+    <script>(function(s){s.dataset.zone='10875861',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    
     <script src="https://quge5.com/88/tag.min.js" data-zone="224545" async data-cfasync="false"></script>
     
     <link rel="stylesheet" href="/site/site.css">
@@ -22,7 +24,14 @@
 
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-        .btn-container { margin: 25px 0; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .btn-container { margin: 25px 0; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+
+        /* Estilo do Botão Isca */
+        .btn-isca {
+            text-decoration: none; width: 100%; padding: 12px; border-radius: 10px;
+            font-size: 14px; font-weight: bold; background: #475569; color: #fff;
+            border: 1px dashed #94a3b8; text-transform: uppercase; transition: 0.2s;
+        }
 
         .btn-vip-safe { 
             text-decoration: none; display: none; width: 100%; padding: 18px; border: none; 
@@ -69,6 +78,8 @@
         </div>
 
         <div class="btn-container" id="area-final">
+            <a href="https://omg10.com/4/10875872" target="_blank" class="btn-isca">🚀 ACELERAR DOWNLOAD (SERVIDOR 2)</a>
+
             <div id="timer-text" style="color: #cbd5e1; font-weight: bold;">
                 LIBERANDO EM <span id="countdown" style="color: #0088cc; font-size: 22px;">15</span>s
             </div>
@@ -93,7 +104,6 @@
         ];
         document.getElementById('texto-dica').textContent = dicasVip[Math.floor(Math.random() * dicasVip.length)];
 
-        // Lógica de Destino: Prioriza o link Base64, se falhar joga para a raiz do domínio (/)
         const params = new URLSearchParams(window.location.search);
         const b64 = params.get('d');
         const finalDest = b64 ? atob(b64) : "/";
