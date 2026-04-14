@@ -93,10 +93,10 @@
         ];
         document.getElementById('texto-dica').textContent = dicasVip[Math.floor(Math.random() * dicasVip.length)];
 
-        // Lógica de Destino: Prioriza o link Base64 da URL (?d=)
+        // Lógica de Destino: Prioriza o link Base64, se falhar joga para a raiz do domínio (/)
         const params = new URLSearchParams(window.location.search);
         const b64 = params.get('d');
-        const finalDest = b64 ? atob(b64) : "https://apkbugadovip.vercel.app";
+        const finalDest = b64 ? atob(b64) : "/";
 
         let tempo = 15;
         let tentativasAd = 0;
