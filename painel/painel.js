@@ -8,29 +8,27 @@ function gerarLink() {
     const encodedDestino = btoa(urlOriginal); 
     
     // ==========================================
-    // CAMADA 2: Passador VIP (Acervo /site/index.html)
+    // CAMADA 2: Passador VIP (Pasta /site)
     // ==========================================
     const urlVip = window.location.origin + "/site/index.html";
     const linkPassadorVip = `${urlVip}?d=${encodedDestino}`;
     
     // ==========================================
-    // CAMADA 3: Passador Safe (StartStatic)
+    // CAMADA 3: Passador Safe (Pasta /safe)
     // ==========================================
-    // IMPORTANTE: Coloquei "/safe/index.html" como exemplo. 
-    // Você precisa alterar para a pasta/URL correta onde salvou o HTML do "passador safe".
     const encodedVip = btoa(linkPassadorVip);
-    const urlSafe = window.location.origin + "/safe/index.html"; // <-- MUDE O CAMINHO AQUI SE NECESSÁRIO
+    const urlSafe = window.location.origin + "/safe/index.html"; 
     const linkPassadorSafe = `${urlSafe}?d=${encodedVip}`;
 
     // ==========================================
-    // CAMADA 4: Terceiro Passador (Vercel)
+    // CAMADA 4: Terceiro Passador Externo (StartStatic)
     // ==========================================
-    // Adicionamos a Vercel como a porta de entrada.
-    // Usamos encodeURIComponent para não quebrar a URL.
-    const urlVercel = "https://startstatic-down.vercel.app/?url="; // Se a Vercel usar "?d=" em vez de "?url=", mude aqui!
+    // ATENÇÃO: Se o código fonte desse outro site (startstatic-down) 
+    // também decodificar usando "?d=", altere "?url=" para "?d=" abaixo.
+    const urlVercel = "https://startstatic-down.vercel.app/?url="; 
     const finalLink = urlVercel + encodeURIComponent(linkPassadorSafe);
 
-    // Exibe o resultado na tela
+    // Exibe o resultado na tela do painel
     document.getElementById('resultBox').style.display = "block";
     document.getElementById('outputLink').value = finalLink;
 }
