@@ -1,6 +1,7 @@
 /* ============================================
-   VIDIOFY BLOG - CSS COMPLETO
-   Tipografia otimizada + Icones CSS puro
+   VIDIOFY BLOG - CSS UNIFICADO
+   Funciona com artigos antigos + novos
+   Mobile-first, sem emoji
    Atualizado: 28/05/2026
    ============================================ */
 
@@ -23,7 +24,6 @@
     --accent-hover: #ff1a25;
     --border: #2a2a2a;
     --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 html {
@@ -40,6 +40,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
 }
 
 /* ---------- CONTAINER ---------- */
@@ -89,6 +90,7 @@ body {
     border-radius: 4px;
     position: relative;
     display: inline-block;
+    flex-shrink: 0;
 }
 
 .logo-icon::after {
@@ -108,6 +110,7 @@ body {
     font-size: 1.35rem;
     font-weight: 800;
     letter-spacing: -0.5px;
+    white-space: nowrap;
 }
 
 .logo-accent {
@@ -126,6 +129,7 @@ body {
     font-weight: 500;
     transition: color 0.2s;
     padding: 4px 0;
+    white-space: nowrap;
 }
 
 .nav a:hover {
@@ -154,12 +158,16 @@ body {
         padding: 16px 20px;
         gap: 12px;
         border-bottom: 1px solid var(--border);
+        z-index: 99;
     }
     .nav.active {
         display: flex;
     }
     .menu-toggle {
         display: block;
+    }
+    .logo-text {
+        font-size: 1.2rem;
     }
 }
 
@@ -170,13 +178,15 @@ body {
 }
 
 .hero h1 {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: clamp(1.7rem, 5.5vw, 2.4rem);
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 16px;
     color: var(--text-primary);
     letter-spacing: -0.3px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .hero h1 .highlight {
@@ -214,7 +224,7 @@ body {
 
 /* ---------- SECTION TITLES ---------- */
 .section-title {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: clamp(1.35rem, 4vw, 1.7rem);
     font-weight: 800;
     margin-bottom: 24px;
@@ -267,6 +277,7 @@ body {
     object-fit: cover;
     object-position: center;
     transition: transform 0.4s ease;
+    display: block;
 }
 
 .article-card:hover .article-image img {
@@ -301,7 +312,7 @@ body {
 }
 
 .article-content h3 {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: 1.08rem;
     font-weight: 700;
     line-height: 1.35;
@@ -474,7 +485,7 @@ body {
 }
 
 .category-card.reviews .category-icon::after {
-    content: "★";
+    content: "°5";
     color: #fff;
     font-size: 22px;
     line-height: 1;
@@ -546,7 +557,7 @@ body {
 }
 
 .newsletter-box h2 {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: 1.25rem;
     font-weight: 800;
     margin-bottom: 10px;
@@ -686,6 +697,380 @@ body {
     color: var(--text-muted);
 }
 
+/* ============================================
+   ARTIGO INDIVIDUAL - CSS UNIFICADO
+   Compativel com .article-body E .article-content-full
+   ============================================ */
+
+.article-page .hero {
+    padding: 32px 0 24px;
+    text-align: left;
+}
+
+.article-page .hero h1 {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    justify-content: center;
+}
+
+.article-meta .badge {
+    background: var(--accent);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* ---------- IMAGENS DO ARTIGO - RESPONSIVAS ---------- */
+.article-hero-image,
+.article-content-full img,
+.article-body img,
+.article-text img,
+.article-container img,
+.container img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+    margin: 0 auto 24px;
+    display: block;
+}
+
+.article-figure,
+.article-content-full figure,
+.article-body figure {
+    margin: 24px 0;
+    text-align: center;
+}
+
+.article-figure img,
+.article-content-full figure img,
+.article-body figure img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+.article-figure figcaption,
+.article-content-full figcaption,
+.article-body figcaption {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* ---------- CONTEUDO DO ARTIGO ---------- */
+.article-body,
+.article-content-full {
+    font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.article-body h2,
+.article-content-full h2 {
+    font-family: var(--font-body);
+    font-size: clamp(1.25rem, 4vw, 1.6rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 36px 0 16px;
+    line-height: 1.3;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.article-body h3,
+.article-content-full h3 {
+    font-family: var(--font-body);
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 28px 0 12px;
+    line-height: 1.35;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.article-body p,
+.article-content-full p,
+.article-content-full .lead {
+    margin-bottom: 18px;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.article-content-full .lead {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.article-body ul,
+.article-body ol,
+.article-content-full ul,
+.article-content-full ol {
+    margin: 16px 0 20px 20px;
+    padding-left: 8px;
+}
+
+.article-body li,
+.article-content-full li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.article-body li::marker,
+.article-content-full li::marker {
+    color: var(--accent);
+}
+
+.article-body strong,
+.article-content-full strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.article-body a,
+.article-content-full a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.article-body a:hover,
+.article-content-full a:hover {
+    border-bottom-color: var(--accent);
+}
+
+.article-body blockquote,
+.article-content-full blockquote {
+    background: var(--bg-card);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.article-body blockquote p,
+.article-content-full blockquote p {
+    margin: 0;
+}
+
+/* ---------- TABELAS ---------- */
+.article-body table,
+.article-content-full table,
+.comparison-table table,
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    display: block;
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.article-body th,
+.article-content-full th,
+.comparison-table th {
+    background: rgba(229,9,20,0.15);
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 14px;
+    text-align: left;
+}
+
+.article-body td,
+.article-content-full td,
+.comparison-table td,
+.price-row {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.comparison-table tr:hover td {
+    background: rgba(255,255,255,0.02);
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 20px;
+}
+
+.price-row:last-child {
+    border-bottom: none;
+}
+
+.price-row span:first-child {
+    color: var(--text-secondary);
+}
+
+.price-row span:last-child {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* ---------- TAGS ---------- */
+.article-tags {
+    margin: 40px 0;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.article-tags span {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.article-tags a {
+    background: rgba(255,255,255,0.05);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.article-tags a:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* ---------- ARTICLE NAV ---------- */
+.article-nav {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.next-article {
+    text-align: right;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.next-article span {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 16px;
+    display: block;
+}
+
+/* ---------- RESPONSIVO ARTIGO ---------- */
+@media (max-width: 768px) {
+    .article-page .hero {
+        padding: 24px 0 16px;
+    }
+
+    .article-hero-image,
+    .article-content-full img,
+    .article-body img,
+    .article-text img,
+    .article-container img,
+    .container img {
+        max-height: 250px;
+        border-radius: 0;
+        margin: 0 -18px 20px -18px;
+        width: calc(100% + 36px);
+        max-width: calc(100% + 36px);
+    }
+
+    .article-figure img,
+    .article-content-full figure img,
+    .article-body figure img {
+        border-radius: 0;
+        margin: 0 -18px;
+        width: calc(100% + 36px);
+    }
+
+    .article-body,
+    .article-content-full {
+        font-size: 1.05rem;
+        line-height: 1.75;
+    }
+
+    .article-body h2,
+    .article-content-full h2 {
+        font-size: 1.25rem;
+        margin: 28px 0 14px;
+    }
+
+    .article-body h3,
+    .article-content-full h3 {
+        font-size: 1.1rem;
+        margin: 24px 0 10px;
+    }
+
+    .article-body p,
+    .article-content-full p,
+    .article-content-full .lead {
+        margin-bottom: 16px;
+    }
+
+    .article-meta {
+        font-size: 0.8rem;
+        gap: 8px;
+    }
+
+    .comparison-table,
+    .price-table {
+        font-size: 13px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 10px;
+    }
+}
+
 /* ---------- SCROLLBAR ---------- */
 ::-webkit-scrollbar {
     width: 5px;
@@ -706,3 +1091,10 @@ body {
     background: rgba(229, 9, 20, 0.3);
     color: var(--text-primary);
 }
+
+/* ---------- UTILITARIOS ---------- */
+.text-center { text-align: center; }
+.mt-2 { margin-top: 8px; }
+.mt-4 { margin-top: 16px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-4 { margin-bottom: 16px; }
