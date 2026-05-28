@@ -4,162 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato | Vidiofy Blog</title>
-    <meta name="description" content="Entre em contato com o Vidiofy Blog. Envie sugestões, dúvidas ou propostas de parceria.">
+    <meta name="description" content="Contato | Vidiofy Blog - Vidiofy Blog. Conteudo original sobre tecnologia e streaming.">
     <link rel="canonical" href="https://vidiofy.com.br/blog/contato.html">
     <link rel="stylesheet" href="css/blog.css">
-    <link rel="stylesheet" href="css/artigo.css">
-    <style>
-        .contact-form { max-width: 600px; margin: 0 auto; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; color: #ccc; font-size: 14px; margin-bottom: 8px; font-weight: 500; }
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%; background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
-            padding: 14px 16px; color: #fff; font-size: 15px;
-            outline: none; transition: border-color 0.2s; font-family: inherit;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus { border-color: #e50914; }
-        .form-group input::placeholder,
-        .form-group textarea::placeholder { color: #555; }
-        .form-group textarea { min-height: 140px; resize: vertical; }
-        .form-group select { cursor: pointer; appearance: none; }
-        .form-group select option { background: #141414; color: #fff; }
-        .submit-btn {
-            background: #e50914; color: #fff; border: none;
-            border-radius: 10px; padding: 14px 32px;
-            font-size: 16px; font-weight: 600; cursor: pointer;
-            transition: all 0.3s; width: 100%;
-        }
-        .submit-btn:hover { background: #b20710; transform: translateY(-2px); }
-        .contact-info { 
-            background: rgba(255,255,255,0.02); border-radius: 16px;
-            padding: 28px; border: 1px solid rgba(255,255,255,0.05);
-            margin-top: 32px;
-        }
-        .contact-info h3 { color: #fff; margin-bottom: 16px; font-size: 18px; }
-        .contact-info p { color: #888; font-size: 15px; margin-bottom: 10px; }
-        .contact-info a { color: #e50914; }
-        .success-msg {
-            display: none; background: rgba(34,197,94,0.1);
-            border: 1px solid rgba(34,197,94,0.3); color: #22c55e;
-            padding: 16px; border-radius: 10px; margin-bottom: 20px;
-            text-align: center;
-        }
-    </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="article-page">
     <header class="header">
         <div class="container">
             <a href="/blog/" class="logo">
-                <span class="logo-icon">📺</span>
+                <span class="logo-icon"></span>
                 <span class="logo-text">Vidiofy<span class="logo-accent">Blog</span></span>
             </a>
-            <nav class="nav">
-                <a href="/blog/">Início</a>
+            <nav class="nav" id="mainNav">
+                <a href="/blog/">Inicio</a>
                 <a href="/blog/artigos/">Artigos</a>
                 <a href="/blog/artigos/#streaming">Streaming</a>
                 <a href="/blog/artigos/#tutoriais">Tutoriais</a>
             </nav>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
         </div>
     </header>
 
-    <article class="article-page">
-        <div class="container article-container">
-            <div class="article-header">
-                <span class="article-category">Contato</span>
-                <h1>Fale Conosco</h1>
-                <div class="article-meta">
-                    <span>📅 Disponível 24/7</span>
-                    <span>⏱️ Resposta em até 48h</span>
-                </div>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Entre em Contato</h1>
             </div>
+        </section>
 
-            <div class="article-content-full">
-                <p class="lead">Tem uma sugestão de pauta, encontrou um erro em algum artigo, ou quer propor uma parceria? Estamos aqui para ouvir você. Preencha o formulário abaixo e responderemos o mais breve possível.</p>
+        <div class="container">
+            <article class="article-body">
+                <p>Tem uma duvida, sugestao ou quer colaborar com o Vidiofy Blog? Preencha o formulario abaixo e entraremos em contato o mais breve possivel.</p>
 
-                <div class="ad-container">
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                </div>
+<h2>Formulario de Contato</h2>
+<form action="https://formspree.io/f/SEU_ID" method="POST" class="newsletter-form" style="flex-direction: column; gap: 12px;">
+    <input type="text" name="nome" placeholder="Seu nome" required style="width: 100%;">
+    <input type="email" name="email" placeholder="Seu e-mail" required style="width: 100%;">
+    <input type="text" name="assunto" placeholder="Assunto" required style="width: 100%;">
+    <textarea name="mensagem" placeholder="Sua mensagem" rows="6" required style="width: 100%; padding: 14px 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-primary); font-size: 0.95rem; outline: none; resize: vertical;"></textarea>
+    <button type="submit">Enviar Mensagem</button>
+</form>
 
-                <div class="success-msg" id="successMsg">
-                    ✅ Mensagem enviada com sucesso! Retornaremos em breve.
-                </div>
+<h2 style="margin-top: 32px;">Informacoes de Contato</h2>
+<p><strong>E-mail:</strong> contato@vidiofy.com.br</p>
+<p><strong>Horario de atendimento:</strong> Segunda a Sexta, 9h as 18h (horario de Brasilia)</p>
+<p><strong>Tempo medio de resposta:</strong> 48 horas uteis</p>
 
-                <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="nome">Nome completo *</label>
-                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail *</label>
-                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="assunto">Assunto *</label>
-                        <select id="assunto" name="assunto" required>
-                            <option value="" disabled selected>Selecione um assunto</option>
-                            <option value="sugestao">Sugestão de pauta</option>
-                            <option value="erro">Reportar erro em artigo</option>
-                            <option value="parceria">Proposta de parceria</option>
-                            <option value="publicidade">Publicidade e anúncios</option>
-                            <option value="privacidade">Dúvida sobre privacidade/dados</option>
-                            <option value="outro">Outro assunto</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem *</label>
-                        <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
-                            <input type="checkbox" required style="width:auto;">
-                            <span style="font-size:13px;color:#666;">Concordo com a <a href="privacidade.html" style="color:#e50914;">Política de Privacidade</a> e autorizo o tratamento dos dados fornecidos.</span>
-                        </label>
-                    </div>
-                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
-                </form>
-
-                <div class="contact-info">
-                    <h3>📬 Outras Formas de Contato</h3>
-                    <p><strong>Resposta:</strong> Em até 48 horas úteis</p>
-                    <p><strong>Horário:</strong> Segunda a sexta, 9h às 18h (BRT)</p>
-                    <p><strong>Redes sociais:</strong> Siga-nos para novidades em tempo real</p>
-                    <p style="margin-top:16px;font-size:13px;color:#555;">
-                        <strong>Nota:</strong> Este formulário é demonstrativo. Para receber mensagens reais, você precisará integrar com um serviço de formulários como Formspree, Google Forms, ou criar um endpoint no seu backend.
-                    </p>
-                </div>
-            </div>
+<h2>Perguntas Frequentes</h2>
+<p><strong>Posso sugerir temas para artigos?</strong> Sim! Adoramos receber sugestoes da comunidade. Use o formulario acima.</p>
+<p><strong>Voces aceitam parcerias?</strong> Analisamos propostas de parceria desde que respeitem nossa independencia editorial. Entre em contato para detalhes.</p>
+<p><strong>Como reportar um erro no site?</strong> Agradecemos quando leitores nos ajudam a manter a qualidade. Envie pelo formulario com o assunto "Correcao".</p>
+            </article>
         </div>
-    </article>
+    </main>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div><h4>Vidiofy Blog</h4><p>Conteúdo original sobre tecnologia, streaming e aplicativos.</p></div>
-                <div><h4>Links</h4><ul><li><a href="/blog/">Início</a></li><li><a href="/blog/artigos/">Artigos</a></li><li><a href="/blog/sobre.html">Sobre</a></li><li><a href="/blog/contato.html">Contato</a></li></ul></div>
-                <div><h4>Legal</h4><ul><li><a href="/blog/privacidade.html">Política de Privacidade</a></li><li><a href="/blog/termos.html">Termos de Uso</a></li></ul></div>
+                <div>
+                    <h4>Vidiofy Blog</h4>
+                    <p>Conteudo original sobre tecnologia, streaming e aplicativos.</p>
+                </div>
+                <div>
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="/blog/">Inicio</a></li>
+                        <li><a href="/blog/artigos/">Artigos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Sobre</h4>
+                    <ul>
+                        <li><a href="privacidade.html">Politica de Privacidade</a></li>
+                        <li><a href="termos.html">Termos de Uso</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-bottom"><p>© 2026 Vidiofy Blog. Todos os direitos reservados.</p></div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vidiofy Blog. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/blog.js"></script>
     <script>
-        function handleSubmit(e) {
-            e.preventDefault();
-            // Simula envio - em produção, integrar com Formspree ou backend
-            document.getElementById('successMsg').style.display = 'block';
-            document.getElementById('contactForm').reset();
-            setTimeout(() => {
-                document.getElementById('successMsg').style.display = 'none';
-            }, 5000);
-        }
+    function toggleMenu() {
+        document.getElementById('mainNav').classList.toggle('active');
+    }
     </script>
 </body>
 </html>

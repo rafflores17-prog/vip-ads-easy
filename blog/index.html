@@ -1,236 +1,239 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vidiofy Blog - Tecnologia, Streaming e Aplicativos</title>
-<meta name="description" content="Análises, tutoriais e dicas sobre tecnologia, streaming e aplicativos. Conteúdo original e atualizado.">
-<meta name="keywords" content="streaming, tecnologia, aplicativos, Netflix, Disney+, HBO Max, tutoriais">
-<link rel="canonical" href="https://vidiofy.com.br/blog/">
-<meta property="og:title" content="Vidiofy Blog - Tecnologia e Streaming">
-<meta property="og:description" content="Conteúdo original sobre tecnologia, streaming e aplicativos.">
-<meta property="og:url" content="https://vidiofy.com.br/blog/">
-<meta property="og:type" content="website">
-<link rel="stylesheet" href="css/blog.css">
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidiofy Blog - Tecnologia, Streaming e Aplicativos</title>
+    <meta name="description" content="Analises, tutoriais e dicas sobre tecnologia, streaming e aplicativos. Conteudo original e atualizado.">
+    <meta name="keywords" content="streaming, tecnologia, aplicativos, Netflix, Disney+, HBO Max, tutoriais">
+    <link rel="canonical" href="https://vidiofy.com.br/blog/">
+    <meta property="og:title" content="Vidiofy Blog - Tecnologia e Streaming">
+    <meta property="og:description" content="Conteudo original sobre tecnologia, streaming e aplicativos.">
+    <meta property="og:url" content="https://vidiofy.com.br/blog/">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="css/blog.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
 </head>
 <body>
-<header class="header">
-<div class="container">
-<a href="/blog/" class="logo">
-<span class="logo-icon"></span>
-<span class="logo-text">Vidiofy<span class="logo-accent">Blog</span></span>
-</a>
-<nav class="nav">
-<a href="/blog/">Início</a>
-<a href="/blog/artigos/">Artigos</a>
-<a href="/blog/artigos/#streaming">Streaming</a>
-<a href="/blog/artigos/#tutoriais">Tutoriais</a>
-</nav>
-<button class="menu-toggle" onclick="toggleMenu()"></button>
-</div>
-</header>
+    <header class="header">
+        <div class="container">
+            <a href="/blog/" class="logo">
+                <span class="logo-icon"></span>
+                <span class="logo-text">Vidiofy<span class="logo-accent">Blog</span></span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="/blog/">Inicio</a>
+                <a href="/blog/artigos/">Artigos</a>
+                <a href="/blog/artigos/#streaming">Streaming</a>
+                <a href="/blog/artigos/#tutoriais">Tutoriais</a>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+        </div>
+    </header>
 
-<main>
-<!-- Hero Section -->
-<section class="hero">
-<div class="container">
-<h1>Descubra o Melhor do <span class="highlight">Streaming</span> e <span class="highlight">Tecnologia</span></h1>
-<p>Análises detalhadas, comparativos e tutoriais para você aproveitar ao máximo seus serviços digitais.</p>
-<a href="#artigos" class="btn-primary">Explorar Artigos</a>
-</div>
-</section>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Descubra o Melhor do <span class="highlight">Streaming</span> e <span class="highlight">Tecnologia</span></h1>
+                <p>Analises detalhadas, comparativos e tutoriais para voce aproveitar ao maximo seus servicos digitais.</p>
+                <a href="#artigos" class="btn-primary">Explorar Artigos</a>
+            </div>
+        </section>
 
-<!-- AdSense Top -->
-<div class="container">
-<div class="ad-container">
-<ins class="adsbygoogle"
-style="display:block"
-data-ad-client="ca-pub-XXXXXXXXXX"
-data-ad-slot="XXXXXXXXXX"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-</div>
+        <!-- AdSense Top -->
+        <div class="container">
+            <div class="ad-container">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </div>
 
-<!-- Artigos em Destaque -->
-<section class="featured" id="artigos">
-<div class="container">
-<h2 class="section-title"> Artigos em Destaque</h2>
-<div class="articles-grid">
+        <!-- Artigos em Destaque -->
+        <section class="featured" id="artigos">
+            <div class="container">
+                <h2 class="section-title">Artigos em Destaque</h2>
+                <div class="articles-grid">
 
-<article class="article-card">
-<div class="article-image" style="background: linear-gradient(135deg, #e50914 0%, #b20710 100%);">
-<span class="article-badge">Streaming</span>
-<span class="article-icon"></span>
-</div>
-<div class="article-content">
-<span class="article-date">28 de Maio, 2026</span>
-<h3><a href="artigos/melhores-apps-streaming-2026.html">Melhores Aplicativos de Streaming para Assistir em 2026</a></h3>
-<p>Comparativo completo entre Netflix, Disney+, HBO Max, Amazon Prime Video e outros serviços populares no Brasil.</p>
-<a href="artigos/melhores-apps-streaming-2026.html" class="read-more">Ler artigo →</a>
-</div>
-</article>
+                    <article class="article-card" data-category="streaming">
+                        <div class="article-image" style="background: linear-gradient(135deg, #e50914 0%, #b20710 100%);">
+                            <img src="img/streaming-apps-2026.jpg" alt="Apps de streaming" loading="lazy">
+                            <span class="article-badge">Streaming</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-date">28 de Maio, 2026</span>
+                            <h3><a href="artigos/melhores-apps-streaming-2026.html">Melhores Aplicativos de Streaming para Assistir em 2026</a></h3>
+                            <p>Comparativo completo entre Netflix, Disney+, HBO Max, Amazon Prime Video e outros servicos populares no Brasil.</p>
+                            <a href="artigos/melhores-apps-streaming-2026.html" class="read-more">Ler artigo &rarr;</a>
+                        </div>
+                    </article>
 
-<article class="article-card">
-<div class="article-image" style="background: linear-gradient(135deg, #00d4aa 0%, #00a884 100%);">
-<span class="article-badge">Tutorial</span>
-<span class="article-icon"></span>
-</div>
-<div class="article-content">
-<span class="article-date">25 de Maio, 2026</span>
-<h3><a href="artigos/como-economizar-streaming.html">Como Economizar na Assinatura de Streaming: 10 Dicas Comprovadas</a></h3>
-<p>Aprenda a dividir contas, usar planos familiares e aproveitar promoções sem violar termos de uso.</p>
-<a href="artigos/como-economizar-streaming.html" class="read-more">Ler artigo →</a>
-</div>
-</article>
+                    <article class="article-card" data-category="tutorial">
+                        <div class="article-image" style="background: linear-gradient(135deg, #00d4aa 0%, #00a884 100%);">
+                            <img src="img/economizar-streaming.jpg" alt="Economizar em streaming" loading="lazy">
+                            <span class="article-badge">Tutorial</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-date">25 de Maio, 2026</span>
+                            <h3><a href="artigos/como-economizar-streaming.html">Como Economizar na Assinatura de Streaming: 10 Dicas Comprovadas</a></h3>
+                            <p>Aprenda a dividir contas, usar planos familiares e aproveitar promocoes sem violar termos de uso.</p>
+                            <a href="artigos/como-economizar-streaming.html" class="read-more">Ler artigo &rarr;</a>
+                        </div>
+                    </article>
 
-<article class="article-card">
-<div class="article-image" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
-<span class="article-badge">Tecnologia</span>
-<span class="article-icon"></span>
-</div>
-<div class="article-content">
-<span class="article-date">22 de Maio, 2026</span>
-<h3><a href="artigos/guia-smart-tv-2026.html">Guia Completo: Como Escolher sua Smart TV em 2026</a></h3>
-<p>Resolução, sistema operacional, conectividade e apps nativos: tudo que você precisa saber antes de comprar.</p>
-<a href="artigos/guia-smart-tv-2026.html" class="read-more">Ler artigo →</a>
-</div>
-</article>
+                    <article class="article-card" data-category="tecnologia">
+                        <div class="article-image" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
+                            <img src="img/smart-tv-2026.jpg" alt="Smart TV 2026" loading="lazy">
+                            <span class="article-badge">Tecnologia</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-date">22 de Maio, 2026</span>
+                            <h3><a href="artigos/guia-smart-tv-2026.html">Guia Completo: Como Escolher sua Smart TV em 2026</a></h3>
+                            <p>Resolucao, sistema operacional, conectividade e apps nativos: tudo que voce precisa saber antes de comprar.</p>
+                            <a href="artigos/guia-smart-tv-2026.html" class="read-more">Ler artigo &rarr;</a>
+                        </div>
+                    </article>
 
-<article class="article-card">
-<div class="article-image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
-<span class="article-badge">Review</span>
-<span class="article-icon"></span>
-</div>
-<div class="article-content">
-<span class="article-date">18 de Maio, 2026</span>
-<h3><a href="artigos/chromecast-vs-firestick.html">Chromecast 4K vs Fire TV Stick 4K Max: Qual Comprar?</a></h3>
-<p>Comparativo técnico de performance, interface, compatibilidade de apps e custo-benefício no Brasil.</p>
-<a href="artigos/chromecast-vs-firestick.html" class="read-more">Ler artigo →</a>
-</div>
-</article>
+                    <article class="article-card" data-category="review">
+                        <div class="article-image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <img src="img/chromecast-vs-firestick.jpg" alt="Chromecast vs Firestick" loading="lazy">
+                            <span class="article-badge">Review</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-date">18 de Maio, 2026</span>
+                            <h3><a href="artigos/chromecast-vs-firestick.html">Chromecast 4K vs Fire TV Stick 4K Max: Qual Comprar?</a></h3>
+                            <p>Comparativo tecnico de performance, interface, compatibilidade de apps e custo-beneficio no Brasil.</p>
+                            <a href="artigos/chromecast-vs-firestick.html" class="read-more">Ler artigo &rarr;</a>
+                        </div>
+                    </article>
 
-<article class="article-card">
-<div class="article-image" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">
-<span class="article-badge">Tutorial</span>
-<span class="article-icon"></span>
-</div>
-<div class="article-content">
-<span class="article-date">15 de Maio, 2026</span>
-<h3><a href="artigos/criar-conta-netflix-segura.html">Como Criar uma Conta Netflix Segura e Proteger seus Dados</a></h3>
-<p>Passo a passo para configurar sua conta com autenticação de dois fatores e senha forte.</p>
-<a href="artigos/criar-conta-netflix-segura.html" class="read-more">Ler artigo →</a>
-</div>
-</article>
+                    <article class="article-card" data-category="tutorial">
+                        <div class="article-image" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">
+                            <img src="img/netflix-seguranca.jpg" alt="Seguranca Netflix" loading="lazy">
+                            <span class="article-badge">Tutorial</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-date">15 de Maio, 2026</span>
+                            <h3><a href="artigos/criar-conta-netflix-segura.html">Como Criar uma Conta Netflix Segura e Proteger seus Dados</a></h3>
+                            <p>Passo a passo para configurar sua conta com autenticacao de dois fatores e senha forte.</p>
+                            <a href="artigos/criar-conta-netflix-segura.html" class="read-more">Ler artigo &rarr;</a>
+                        </div>
+                    </article>
 
-<article class="article-card">
-<div class="article-image" style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);">
-<span class="article-badge">Streaming</span>
-<span class="article-icon"></span>
-</div>
-<div class="article-content">
-<span class="article-date">12 de Maio, 2026</span>
-<h3><a href="artigos/vpn-streaming-2026.html">VPN para Streaming em 2026: Vale a Pena? Guia Completo</a></h3>
-<p>Entenda como VPNs funcionam com streaming, velocidade, catálogos internacionais e questões legais.</p>
-<a href="artigos/vpn-streaming-2026.html" class="read-more">Ler artigo →</a>
-</div>
-</article>
+                    <article class="article-card" data-category="streaming">
+                        <div class="article-image" style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);">
+                            <img src="img/vpn-streaming.jpg" alt="VPN para streaming" loading="lazy">
+                            <span class="article-badge">Streaming</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-date">12 de Maio, 2026</span>
+                            <h3><a href="artigos/vpn-streaming-2026.html">VPN para Streaming em 2026: Vale a Pena? Guia Completo</a></h3>
+                            <p>Entenda como VPNs funcionam com streaming, velocidade, catalogos internacionais e questoes legais.</p>
+                            <a href="artigos/vpn-streaming-2026.html" class="read-more">Ler artigo &rarr;</a>
+                        </div>
+                    </article>
 
-</div>
-</div>
-</section>
+                </div>
+            </div>
+        </section>
 
-<!-- AdSense Middle -->
-<div class="container">
-<div class="ad-container">
-<ins class="adsbygoogle"
-style="display:block"
-data-ad-client="ca-pub-XXXXXXXXXX"
-data-ad-slot="XXXXXXXXXX"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-</div>
+        <!-- AdSense Middle -->
+        <div class="container">
+            <div class="ad-container">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </div>
 
-<!-- Categorias -->
-<section class="categories">
-<div class="container">
-<h2 class="section-title"> Navegue por Categoria</h2>
-<div class="categories-grid">
-<a href="artigos/#streaming" class="category-card">
-<span class="category-icon"></span>
-<h3>Streaming</h3>
-<p>Netflix, Disney+, HBO Max, Prime Video e mais</p>
-</a>
-<a href="artigos/#tutoriais" class="category-card">
-<span class="category-icon"></span>
-<h3>Tutoriais</h3>
-<p>Passo a passo e guias práticos</p>
-</a>
-<a href="artigos/#reviews" class="category-card">
-<span class="category-icon"></span>
-<h3>Reviews</h3>
-<p>Análises e comparativos de produtos</p>
-</a>
-<a href="artigos/#tecnologia" class="category-card">
-<span class="category-icon"></span>
-<h3>Tecnologia</h3>
-<p>Novidades e tendências tech</p>
-</a>
-</div>
-</div>
-</section>
+        <!-- Categorias -->
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title">Navegue por Categoria</h2>
+                <div class="categories-grid">
+                    <a href="artigos/#streaming" class="category-card streaming">
+                        <span class="category-icon"></span>
+                        <h3>Streaming</h3>
+                        <p>Netflix, Disney+, HBO Max, Prime Video e mais</p>
+                    </a>
+                    <a href="artigos/#tutoriais" class="category-card tutoriais">
+                        <span class="category-icon"></span>
+                        <h3>Tutoriais</h3>
+                        <p>Passo a passo e guias praticos</p>
+                    </a>
+                    <a href="artigos/#reviews" class="category-card reviews">
+                        <span class="category-icon"></span>
+                        <h3>Reviews</h3>
+                        <p>Analises e comparativos de produtos</p>
+                    </a>
+                    <a href="artigos/#tecnologia" class="category-card tecnologia">
+                        <span class="category-icon"></span>
+                        <h3>Tecnologia</h3>
+                        <p>Novidades e tendencias tech</p>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-<!-- Newsletter -->
-<section class="newsletter">
-<div class="container">
-<div class="newsletter-box">
-<h2> Receba Novidades</h2>
-<p>Inscreva-se para receber os melhores artigos sobre streaming e tecnologia direto no seu e-mail.</p>
-<form class="newsletter-form" onsubmit="event.preventDefault(); alert('Obrigado por se inscrever!');">
-<input type="email" placeholder="Seu melhor e-mail" required>
-<button type="submit">Inscrever-se</button>
-</form>
-</div>
-</div>
-</section>
-</main>
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-box">
+                    <h2>Receba Novidades</h2>
+                    <p>Inscreva-se para receber os melhores artigos sobre streaming e tecnologia direto no seu e-mail.</p>
+                    <form class="newsletter-form" action="https://formspree.io/f/SEU_ID" method="POST">
+                        <input type="email" name="email" placeholder="Seu melhor e-mail" required>
+                        <button type="submit">Inscrever-se</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<footer class="footer">
-<div class="container">
-<div class="footer-grid">
-<div>
-<h4>Vidiofy Blog</h4>
-<p>Conteúdo original sobre tecnologia, streaming e aplicativos. Nosso objetivo é informar e ajudar você a aproveitar o melhor da tecnologia.</p>
-</div>
-<div>
-<h4>Links Úteis</h4>
-<ul>
-<li><a href="/blog/">Início</a></li>
-<li><a href="/blog/artigos/">Todos os Artigos</a></li>
-<li><a href="/blog/artigos/#streaming">Streaming</a></li>
-<li><a href="/blog/artigos/#tutoriais">Tutoriais</a></li>
-</ul>
-</div>
-<div>
-<h4>Sobre</h4>
-<ul>
-<li><a href="privacidade.html">Política de Privacidade</a></li>
-<li><a href="termos.html">Termos de Uso</a></li>
-<li><a href="contato.html">Contato</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2026 Vidiofy Blog. Todos os direitos reservados.</p>
-</div>
-</div>
-</footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Vidiofy Blog</h4>
+                    <p>Conteudo original sobre tecnologia, streaming e aplicativos. Nosso objetivo e informar e ajudar voce a aproveitar o melhor da tecnologia.</p>
+                </div>
+                <div>
+                    <h4>Links Uteis</h4>
+                    <ul>
+                        <li><a href="/blog/">Inicio</a></li>
+                        <li><a href="/blog/artigos/">Todos os Artigos</a></li>
+                        <li><a href="/blog/artigos/#streaming">Streaming</a></li>
+                        <li><a href="/blog/artigos/#tutoriais">Tutoriais</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Sobre</h4>
+                    <ul>
+                        <li><a href="privacidade.html">Politica de Privacidade</a></li>
+                        <li><a href="termos.html">Termos de Uso</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vidiofy Blog. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
-<script src="js/blog.js"></script>
+    <script>
+    function toggleMenu() {
+        document.getElementById('mainNav').classList.toggle('active');
+    }
+    </script>
 </body>
 </html>
