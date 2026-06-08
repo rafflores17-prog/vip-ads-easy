@@ -1,9 +1,8 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/blog/:path*", "destination": "/blog/:path*" },
     { "source": "/site/:path*", "destination": "/site/:path*" },
-    { "source": "/painel/:path*", "destination": "/painel/:path*" },
-    { "source": "/safe/:path*", "destination": "/safe/:path*" }
+    { "source": "/safe/:path*", "destination": "/safe/:path*" },
+    { "source": "/painel/:path*", "destination": "/painel/:path*" }
   ]
 }
