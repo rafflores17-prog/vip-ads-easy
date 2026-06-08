@@ -3,168 +3,322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Seguro - ApkBugado</title>
-    
-    <script>(function(s){s.dataset.zone='10875861',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-    
+    <title>Download Seguro — Liberando Acesso</title>
+
+    <!-- Popunder -->
+    <script>(function(s){s.dataset.zone='10875861',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement,document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <script src="https://quge5.com/88/tag.min.js" data-zone="224545" async data-cfasync="false"></script>
-    
-    <link rel="stylesheet" href="/site/site.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        body { display: flex; flex-direction: column; align-items: center; background-color: #020617; font-family: sans-serif; }
-        .conteudo-safe { width: 90%; max-width: 400px; text-align: center; z-index: 10; padding-bottom: 80px; }
-        
-        .ad-placeholder { min-height: 110px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); border-radius: 10px; }
-
-        .aviso-scroll {
-            color: #22c55e; font-size: 13px; font-weight: bold; margin: 15px 0;
-            animation: blink 1.5s infinite; display: block;
+        :root {
+            --bg: #060b14;
+            --blue: #0ea5e9;
+            --blue-dark: #0369a1;
+            --green: #22c55e;
+            --green-dark: #15803d;
+            --yellow: #f59e0b;
+            --red: #ef4444;
+            --card: #0f1a2e;
+            --border: rgba(14,165,233,0.2);
+            --text: #e2e8f0;
+            --muted: #64748b;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            background: var(--bg);
+            background-image:
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(14,165,233,0.12) 0%, transparent 70%),
+                linear-gradient(rgba(14,165,233,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14,165,233,0.04) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center;
         }
 
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
-        .btn-container { margin: 25px 0; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
-
-        /* Estilo do Botão Isca */
-        .btn-isca {
-            text-decoration: none; width: 100%; padding: 12px; border-radius: 10px;
-            font-size: 14px; font-weight: bold; background: #475569; color: #fff;
-            border: 1px dashed #94a3b8; text-transform: uppercase; transition: 0.2s;
+        .topbar {
+            position: fixed; top:0; left:0; width:100%; z-index:100;
+            background: linear-gradient(135deg, #060b14 0%, #0c1a2e 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 20px;
+            text-align: center;
         }
-
-        .btn-vip-safe { 
-            text-decoration: none; display: none; width: 100%; padding: 18px; border: none; 
-            border-radius: 15px; font-size: 18px; font-weight: bold; 
-            cursor: pointer; background: #0088cc; color: #fff; 
+        .topbar-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 15px; letter-spacing: 3px; color: var(--green);
             text-transform: uppercase;
-            box-shadow: 0 6px 0 #005f8d, 0 0 15px rgba(0, 136, 204, 0.6);
-            transition: 0.2s; 
+        }
+        .topbar-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+        .top-spacer { height: 80px; }
+
+        .wrapper { width:92%; max-width:420px; display:flex; flex-direction:column; gap:14px; padding-bottom:60px; }
+
+        .card { background: var(--card); border:1px solid var(--border); border-radius:18px; padding:18px; }
+
+        .status-box {
+            display:flex; align-items:center; gap:10px;
+            background: rgba(14,165,233,0.07);
+            border:1px solid rgba(14,165,233,0.2); border-left:4px solid var(--blue);
+            border-radius:10px; padding:12px 14px; font-size:13px;
+        }
+        .status-box.ok { border-left-color:var(--green); background:rgba(34,197,94,0.07); border-color:rgba(34,197,94,0.2); }
+        .status-box.erro { border-left-color:var(--red); background:rgba(239,68,68,0.07); border-color:rgba(239,68,68,0.2); }
+        .status-label { font-size:10px; color:var(--muted); text-transform:uppercase; font-weight:700; margin-bottom:2px; }
+        .status-txt { font-size:13px; }
+
+        .progress-wrap { margin-top:14px; }
+        .progress-label { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-bottom:6px; }
+        .progress-bar { height:10px; background:#1e293b; border-radius:5px; overflow:hidden; }
+        .progress-fill { height:100%; width:0%; background:linear-gradient(90deg, var(--blue), var(--green)); border-radius:5px; transition:width 0.8s ease; }
+
+        /* Timer circular */
+        .timer-ring-wrap { display:flex; flex-direction:column; align-items:center; gap:8px; padding:10px 0; }
+        .ring-svg { transform: rotate(-90deg); }
+        .ring-bg { fill:none; stroke:#1e293b; stroke-width:8; }
+        .ring-fill { fill:none; stroke:var(--blue); stroke-width:8; stroke-linecap:round; stroke-dasharray:251.2; stroke-dashoffset:0; transition:stroke-dashoffset 1s linear; }
+        .ring-num {
+            position:absolute; font-family:'Rajdhani',sans-serif;
+            font-size:32px; font-weight:700; color:var(--blue);
+            line-height:1;
+        }
+        .ring-container { position:relative; display:flex; align-items:center; justify-content:center; width:90px; height:90px; }
+        .timer-label { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+
+        /* Aviso scroll */
+        .aviso-scroll {
+            text-align:center; font-size:12px; font-weight:700; color:var(--green);
+            letter-spacing:1px; text-transform:uppercase;
+            animation: blink 1.4s infinite;
+        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+        .ad-slot { min-height:80px; display:flex; align-items:center; justify-content:center; }
+
+        /* Botão final */
+        .btn-final {
+            display:none; width:100%; padding:22px;
+            border:none; border-radius:14px;
+            font-family:'Rajdhani',sans-serif; font-size:22px; font-weight:700;
+            cursor:pointer; color:#fff; text-transform:uppercase; letter-spacing:1px;
+            background: linear-gradient(135deg, var(--green), #16a34a);
+            box-shadow: 0 6px 0 var(--green-dark), 0 0 30px rgba(34,197,94,0.4);
+            text-decoration:none; text-align:center;
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green { 0%,100%{transform:scale(1)} 50%{transform:scale(1.02)} }
+
+        .btn-isca {
+            display:block; width:100%; padding:12px;
+            background:#1e293b; color:var(--muted);
+            border:1px dashed #334155; border-radius:10px;
+            font-size:12px; font-weight:600; text-align:center;
+            text-decoration:none; text-transform:uppercase; letter-spacing:0.5px;
         }
 
-        .btn-vip-safe.ativo { background: #22c55e; box-shadow: 0 6px 0 #166534, 0 0 20px rgba(34, 197, 94, 0.7); animation: glowPulseGreen 2s infinite; }
-        @keyframes glowPulseGreen { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
-        
-        .status-erro { color: #ff4757 !important; font-weight: bold; border-left: 5px solid #ff4757 !important; background: #fee2e2 !important; }
+        /* Dica */
+        .dica-box { background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.2); border-radius:10px; padding:10px 14px; }
+        .dica-label { font-size:10px; color:var(--yellow); font-weight:700; text-transform:uppercase; margin-bottom:3px; }
+        .dica-txt { font-size:12px; color:#fcd34d; }
+
+        /* AdBlock overlay */
+        .adblock-overlay {
+            display:none; position:fixed; inset:0; z-index:200;
+            background:rgba(6,11,20,0.97);
+            flex-direction:column; align-items:center; justify-content:center;
+            padding:30px; text-align:center;
+        }
+        .adblock-overlay.show { display:flex; }
+        .adblock-icon { font-size:56px; margin-bottom:14px; }
+        .adblock-title { font-family:'Rajdhani',sans-serif; font-size:24px; color:var(--red); text-transform:uppercase; letter-spacing:2px; margin-bottom:8px; }
+        .adblock-desc { font-size:13px; color:var(--muted); line-height:1.6; max-width:300px; }
+        .adblock-steps { margin:14px 0; text-align:left; max-width:280px; }
+        .adblock-steps li { font-size:13px; color:var(--text); margin-bottom:6px; }
+        .btn-reload { margin-top:10px; padding:14px 28px; background:var(--blue); border:none; border-radius:12px; color:#fff; font-weight:700; font-size:15px; cursor:pointer; font-family:'Rajdhani',sans-serif; text-transform:uppercase; }
+
+        .footer-info { text-align:center; font-size:11px; color:#1e293b; padding:20px 0; }
     </style>
 </head>
 <body>
 
-    <div class="acervo-banner">
-        <h2>★ DOWNLOAD SEGURO ★</h2>
-        <p>Sistema de Verificação ApkBugado Ativo</p>
-    </div>
+<!-- ADBLOCK OVERLAY -->
+<div class="adblock-overlay" id="adblock-overlay">
+    <div class="adblock-icon">🚫</div>
+    <div class="adblock-title">AdBlock Detectado!</div>
+    <div class="adblock-desc">O sistema de download requer anúncios habilitados para validar o acesso.</div>
+    <ol class="adblock-steps">
+        <li>Clique no ícone do AdBlock/uBlock na barra do navegador</li>
+        <li>Selecione <strong>"Desativar neste site"</strong></li>
+        <li>Recarregue a página abaixo</li>
+    </ol>
+    <button class="btn-reload" onclick="location.reload()">🔄 JÁ DESATIVEI — RECARREGAR</button>
+</div>
 
-    <div class="top-spacer"></div>
+<div class="topbar">
+    <div class="topbar-title">✅ Acesso VIP Verificado</div>
+    <div class="topbar-sub">Aguarde a liberação do download...</div>
+</div>
 
-    <div class="conteudo-safe">
-        <span class="aviso-scroll" id="scroll-msg">ROLE ATÉ O FINAL, O BOTÃO ESTÁ ABAIXO 👇</span>
+<div class="top-spacer"></div>
 
-        <div class="ad-placeholder" id="ad-top-wrapper">
-            <script async="async" data-cfasync="false" src="https://encouragingjawsordinarily.com/229016a21e1a937d798a4dd66405699f/invoke.js"></script>
-            <div id="container-229016a21e1a937d798a4dd66405699f"></div>
-        </div>
+<div class="wrapper">
 
-        <div class="card">
-            <div class="status-info" id="box-status">
-                <b>🛡️ STATUS:</b> <span id="status-txt">Validando conexão...</span>
+    <!-- STATUS -->
+    <div class="card">
+        <div class="status-box" id="status-box">
+            <span style="font-size:18px">🛡️</span>
+            <div>
+                <div class="status-label">STATUS DO DOWNLOAD</div>
+                <div class="status-txt" id="status-txt">Preparando arquivo seguro...</div>
             </div>
-            
-            <div class="progress-bar"><div id="fill" class="fill" style="width: 0%;"></div></div>
-
-            <div id="box-dica" class="status-info">
-                <span id="texto-dica">Carregando dicas VIP...</span>
-            </div>
         </div>
-
-        <div class="btn-container" id="area-final">
-            <a href="https://omg10.com/4/10875872" target="_blank" class="btn-isca">🚀 ACELERAR DOWNLOAD (SERVIDOR 2)</a>
-
-            <div id="timer-text" style="color: #cbd5e1; font-weight: bold;">
-                LIBERANDO EM <span id="countdown" style="color: #0088cc; font-size: 22px;">15</span>s
+        <div class="progress-wrap">
+            <div class="progress-label">
+                <span>PREPARANDO</span><span id="pct-lbl">0%</span>
             </div>
-            <a href="#" id="main-btn" class="btn-vip-safe">CONCLUIR DOWNLOAD</a>
-        </div>
-
-        <div class="ad-placeholder" style="min-height: 60px; background: none;">
-            <script type="text/javascript">
-                atOptions = {'key' : 'a26a53bd8a24eb97c19e90af91d99fe8','format' : 'iframe','height' : 50,'width' : 320,'params' : {}};
-            </script>
-            <script type="text/javascript" src="https://encouragingjawsordinarily.com/a26a53bd8a24eb97c19e90af91d99fe8/invoke.js"></script>
+            <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
         </div>
     </div>
 
-    <script>
-        const dicasVip = [
-            "VIP: Tenha acesso antecipado a todos os MODs no Telegram.",
-            "VPN: Use nossa VPN Premium para navegar com total segurança.",
-            "IPTV: Mais de 50 mil conteúdos em 4K. Peça seu teste!",
-            "SUPORTE: Dúvidas? Nosso time VIP atende você no privado.",
-            "OFERTA: O melhor preço em IPTV e VPN do mercado está aqui."
-        ];
-        document.getElementById('texto-dica').textContent = dicasVip[Math.floor(Math.random() * dicasVip.length)];
+    <!-- DICA -->
+    <div class="dica-box">
+        <div class="dica-label">💡 Enquanto aguarda</div>
+        <div class="dica-txt" id="dica-txt">Carregando...</div>
+    </div>
 
-        const params = new URLSearchParams(window.location.search);
-        const b64 = params.get('d');
-        const finalDest = b64 ? atob(b64) : "/";
+    <!-- AD NATIVO -->
+    <div class="ad-slot" id="ad-native">
+        <script async data-cfasync="false" src="https://encouragingjawsordinarily.com/229016a21e1a937d798a4dd66405699f/invoke.js"></script>
+        <div id="container-229016a21e1a937d798a4dd66405699f"></div>
+    </div>
 
-        let tempo = 15;
-        let tentativasAd = 0;
-        const countEl = document.getElementById('countdown');
-        const fillEl = document.getElementById('fill');
-        const btnEl = document.getElementById('main-btn');
-        const timerText = document.getElementById('timer-text');
-        const scrollMsg = document.getElementById('scroll-msg');
-        const statusTxt = document.getElementById('status-txt');
-        const boxStatus = document.getElementById('box-status');
+    <!-- TIMER -->
+    <div class="card" id="timer-card">
+        <div class="timer-ring-wrap">
+            <div class="ring-container">
+                <svg class="ring-svg" width="90" height="90" viewBox="0 0 90 90">
+                    <circle class="ring-bg" cx="45" cy="45" r="40"/>
+                    <circle class="ring-fill" id="ring" cx="45" cy="45" r="40"/>
+                </svg>
+                <span class="ring-num" id="countdown">20</span>
+            </div>
+            <div class="timer-label">⏱ segundos restantes</div>
+        </div>
+    </div>
 
-        function checkAdBlock() {
-            const adContainer = document.getElementById('container-229016a21e1a937d798a4dd66405699f');
-            const estaVazio = !adContainer || adContainer.offsetHeight < 10;
+    <p class="aviso-scroll" id="aviso-scroll">👇 ROLE PARA BAIXO — BOTÃO SENDO LIBERADO 👇</p>
 
-            if (estaVazio) {
-                tentativasAd++;
-                if (tentativasAd >= 3) {
-                    clearInterval(timer);
-                    statusTxt.textContent = "ERRO: ANÚNCIOS BLOQUEADOS!";
-                    boxStatus.classList.add('status-erro');
-                    timerText.innerHTML = "<span style='color:#ff4757'>Desative o AdBlock para continuar</span>";
-                    scrollMsg.innerHTML = "❌ DOWNLOAD SUSPENSO: DESATIVE O BLOQUEADOR";
-                    return true;
-                }
-            } else {
-                statusTxt.textContent = "Sincronizado com Sucesso!";
-                statusTxt.style.color = "#0088cc";
-            }
-            return false;
-        }
+    <!-- BOTÃO ISCA + FINAL -->
+    <div style="display:flex; flex-direction:column; gap:10px;" id="btn-area">
+        <a href="https://omg10.com/4/10875872" target="_blank" class="btn-isca">🚀 SERVIDOR ALTERNATIVO (CLIQUE PARA TENTAR)</a>
+        <a href="#" id="btn-final" class="btn-final">⬇️ BAIXAR AGORA</a>
+    </div>
 
-        const timer = setInterval(() => {
-            if ([12, 8, 4].includes(tempo)) checkAdBlock();
+    <!-- BANNER AD -->
+    <div class="ad-slot" style="justify-content:center;">
+        <script>
+            atOptions = {'key':'a26a53bd8a24eb97c19e90af91d99fe8','format':'iframe','height':50,'width':320,'params':{}};
+        </script>
+        <script src="https://encouragingjawsordinarily.com/a26a53bd8a24eb97c19e90af91d99fe8/invoke.js"></script>
+    </div>
 
-            tempo--;
-            countEl.textContent = tempo;
-            fillEl.style.width = ((15 - tempo) / 15) * 100 + "%";
+    <div class="footer-info">vip-ads-easy.vercel.app · Acesso seguro e verificado</div>
+</div>
 
-            if(tempo <= 0) {
-                clearInterval(timer);
-                timerText.style.display = 'none';
-                scrollMsg.style.display = 'none';
-                statusTxt.textContent = "Pronto para baixar!";
-                statusTxt.style.color = "#22c55e";
-                
-                btnEl.href = finalDest;
-                btnEl.style.display = 'block';
-                btnEl.classList.add('ativo');
+<!-- Extra script -->
+<script src="https://encouragingjawsordinarily.com/14/de/06/14de069cb7fe10d4725701f5572edf2d.js"></script>
 
-                setTimeout(() => {
-                    document.getElementById('area-final').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300);
-            }
-        }, 1000);
-    </script>
-    
-    <script src="https://encouragingjawsordinarily.com/14/de/06/14de069cb7fe10d4725701f5572edf2d.js"></script>
+<script>
+const dicas = [
+    "🎬 IPTV Premium: +50 mil canais e filmes em 4K. Peça seu teste gratuito!",
+    "🔒 VPN Ultra: Navegue sem limites com segurança total.",
+    "📱 Apps MOD Premium: Tudo desbloqueado no nosso Telegram VIP.",
+    "💰 Combo IPTV + VPN: Melhor preço garantido. Pergunte no privado!",
+    "🚀 Grupo VIP: Primeiros a receber todos os lançamentos e novidades.",
+];
+document.getElementById('dica-txt').textContent = dicas[Math.floor(Math.random() * dicas.length)];
 
+// Link destino
+const params = new URLSearchParams(window.location.search);
+const b64 = params.get('d') || sessionStorage.getItem('vip_d');
+const finalDest = b64 ? atob(b64) : "/";
+document.getElementById('btn-final').href = finalDest;
+
+const TEMPO_TOTAL = 20;
+let tempo = TEMPO_TOTAL;
+let adCheckCount = 0;
+
+const ring    = document.getElementById('ring');
+const countEl = document.getElementById('countdown');
+const fillEl  = document.getElementById('fill');
+const pctLbl  = document.getElementById('pct-lbl');
+const statusEl= document.getElementById('status-txt');
+const statusBox= document.getElementById('status-box');
+const btnFinal = document.getElementById('btn-final');
+const timerCard= document.getElementById('timer-card');
+const aviso    = document.getElementById('aviso-scroll');
+
+const CIRCUNF = 2 * Math.PI * 40; // 251.2
+
+function setRing(pct) {
+    const offset = CIRCUNF * (1 - pct / 100);
+    ring.style.strokeDashoffset = offset;
+}
+
+function checkAdBlock() {
+    const c = document.getElementById('container-229016a21e1a937d798a4dd66405699f');
+    const blocked = !c || c.offsetHeight < 5;
+    if (blocked) adCheckCount++;
+    if (adCheckCount >= 2) {
+        clearInterval(timerInterval);
+        document.getElementById('adblock-overlay').classList.add('show');
+        return true;
+    }
+    if (!blocked) {
+        statusEl.textContent = 'Arquivo sincronizado com sucesso!';
+        statusBox.className = 'status-box ok';
+    }
+    return false;
+}
+
+const timerInterval = setInterval(() => {
+    tempo--;
+    const pct = Math.round(((TEMPO_TOTAL - tempo) / TEMPO_TOTAL) * 100);
+    countEl.textContent = tempo;
+    setRing(pct);
+    fillEl.style.width = pct + '%';
+    pctLbl.textContent = pct + '%';
+
+    // Checa adblock em 3 momentos
+    if ([16, 10, 4].includes(tempo)) checkAdBlock();
+
+    // Status progressivo
+    if (tempo === 15) statusEl.textContent = 'Verificando integridade do arquivo...';
+    if (tempo === 10) statusEl.textContent = 'Sincronizando servidores VIP...';
+    if (tempo === 5)  statusEl.textContent = 'Quase lá! Preparando liberação...';
+
+    if (tempo <= 0) {
+        clearInterval(timerInterval);
+        timerCard.style.display = 'none';
+        aviso.style.display = 'none';
+        pctLbl.textContent = '100%';
+        fillEl.style.width = '100%';
+        statusEl.textContent = '✅ Download pronto!';
+        statusBox.className = 'status-box ok';
+
+        btnFinal.style.display = 'block';
+        setTimeout(() => {
+            btnFinal.scrollIntoView({behavior:'smooth', block:'center'});
+        }, 300);
+    }
+}, 1000);
+
+// Checa adblock após carregamento
+setTimeout(checkAdBlock, 4000);
+</script>
 </body>
 </html>
