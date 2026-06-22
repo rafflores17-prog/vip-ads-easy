@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Seguro — Liberando Acesso</title>
 
-    <!-- Popunder -->
-    <script>(function(s){s.dataset.zone='10875861',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement,document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-    <script src="https://quge5.com/88/tag.min.js" data-zone="224545" async data-cfasync="false"></script>
+    <!-- AdCash AutoTag -->
+    <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
+    <script type="text/javascript">
+        aclib.runAutoTag({ zoneId: '1emoxz4ggq' });
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -76,7 +78,6 @@
         .progress-bar { height:10px; background:#1e293b; border-radius:5px; overflow:hidden; }
         .progress-fill { height:100%; width:0%; background:linear-gradient(90deg, var(--blue), var(--green)); border-radius:5px; transition:width 0.8s ease; }
 
-        /* Timer circular */
         .timer-ring-wrap { display:flex; flex-direction:column; align-items:center; gap:8px; padding:10px 0; }
         .ring-svg { transform: rotate(-90deg); }
         .ring-bg { fill:none; stroke:#1e293b; stroke-width:8; }
@@ -89,7 +90,6 @@
         .ring-container { position:relative; display:flex; align-items:center; justify-content:center; width:90px; height:90px; }
         .timer-label { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
 
-        /* Aviso scroll */
         .aviso-scroll {
             text-align:center; font-size:12px; font-weight:700; color:var(--green);
             letter-spacing:1px; text-transform:uppercase;
@@ -99,7 +99,6 @@
 
         .ad-slot { min-height:80px; display:flex; align-items:center; justify-content:center; }
 
-        /* Botão final */
         .btn-final {
             display:none; width:100%; padding:22px;
             border:none; border-radius:14px;
@@ -120,15 +119,14 @@
             text-decoration:none; text-transform:uppercase; letter-spacing:0.5px;
         }
 
-        /* Dica */
         .dica-box { background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.2); border-radius:10px; padding:10px 14px; }
         .dica-label { font-size:10px; color:var(--yellow); font-weight:700; text-transform:uppercase; margin-bottom:3px; }
         .dica-txt { font-size:12px; color:#fcd34d; }
 
-        /* AdBlock overlay */
+        /* AdBlock overlay melhorado */
         .adblock-overlay {
             display:none; position:fixed; inset:0; z-index:200;
-            background:rgba(6,11,20,0.97);
+            background:rgba(6,11,20,0.98);
             flex-direction:column; align-items:center; justify-content:center;
             padding:30px; text-align:center;
         }
@@ -190,10 +188,13 @@
         <div class="dica-txt" id="dica-txt">Carregando...</div>
     </div>
 
-    <!-- AD NATIVO -->
+    <!-- BANNER ADCASH 300x250 -->
     <div class="ad-slot" id="ad-native">
-        <script async data-cfasync="false" src="https://encouragingjawsordinarily.com/229016a21e1a937d798a4dd66405699f/invoke.js"></script>
-        <div id="container-229016a21e1a937d798a4dd66405699f"></div>
+        <div>
+            <script type="text/javascript">
+                aclib.runBanner({ zoneId: '11500158' });
+            </script>
+        </div>
     </div>
 
     <!-- TIMER -->
@@ -214,23 +215,24 @@
 
     <!-- BOTÃO ISCA + FINAL -->
     <div style="display:flex; flex-direction:column; gap:10px;" id="btn-area">
-        <a href="https://omg10.com/4/10875872" target="_blank" class="btn-isca">🚀 SERVIDOR ALTERNATIVO (CLIQUE PARA TENTAR)</a>
+        <a href="javascript:void(0)" onclick="aclib && aclib.runDirectLink && aclib.runDirectLink({zoneId:'1emoxz4ggq'})" class="btn-isca">🚀 SERVIDOR ALTERNATIVO (CLIQUE PARA TENTAR)</a>
         <a href="#" id="btn-final" class="btn-final">⬇️ BAIXAR AGORA</a>
     </div>
 
-    <!-- BANNER AD -->
-    <div class="ad-slot" style="justify-content:center;">
-        <script>
-            atOptions = {'key':'a26a53bd8a24eb97c19e90af91d99fe8','format':'iframe','height':50,'width':320,'params':{}};
-        </script>
-        <script src="https://encouragingjawsordinarily.com/a26a53bd8a24eb97c19e90af91d99fe8/invoke.js"></script>
+    <!-- BANNER ADCASH INFERIOR 320x50 -->
+    <div class="ad-slot" style="justify-content:center;" id="ad-bottom">
+        <div>
+            <script type="text/javascript">
+                aclib.runBanner({ zoneId: '11499354' });
+            </script>
+        </div>
     </div>
 
-    <div class="footer-info">vip-ads-easy.vercel.app · Acesso seguro e verificado</div>
+    <div class="footer-info">Acesso seguro e verificado</div>
 </div>
 
-<!-- Extra script -->
-<script src="https://encouragingjawsordinarily.com/14/de/06/14de069cb7fe10d4725701f5572edf2d.js"></script>
+<!-- Isca CSS para detecção de AdBlock -->
+<div id="ab-isca" class="ad ads adsbygoogle" style="height:1px;width:1px;position:absolute;left:-9999px;"></div>
 
 <script>
 const dicas = [
@@ -242,7 +244,6 @@ const dicas = [
 ];
 document.getElementById('dica-txt').textContent = dicas[Math.floor(Math.random() * dicas.length)];
 
-// Link destino
 const params = new URLSearchParams(window.location.search);
 const b64 = params.get('d') || sessionStorage.getItem('vip_d');
 const finalDest = b64 ? atob(b64) : "/";
@@ -262,23 +263,31 @@ const btnFinal = document.getElementById('btn-final');
 const timerCard= document.getElementById('timer-card');
 const aviso    = document.getElementById('aviso-scroll');
 
-const CIRCUNF = 2 * Math.PI * 40; // 251.2
+const CIRCUNF = 2 * Math.PI * 40;
 
 function setRing(pct) {
     const offset = CIRCUNF * (1 - pct / 100);
     ring.style.strokeDashoffset = offset;
 }
 
+// Anti-AdBlock melhorado com isca CSS
 function checkAdBlock() {
-    const c = document.getElementById('container-229016a21e1a937d798a4dd66405699f');
-    const blocked = !c || c.offsetHeight < 5;
-    if (blocked) adCheckCount++;
-    if (adCheckCount >= 2) {
-        clearInterval(timerInterval);
-        document.getElementById('adblock-overlay').classList.add('show');
-        return true;
-    }
-    if (!blocked) {
+    const adEl = document.getElementById('ad-native');
+    const isca = document.getElementById('ab-isca');
+
+    let bloqueado = false;
+    if (adEl && adEl.offsetHeight < 10) bloqueado = true;
+    if (isca && isca.offsetHeight === 0) bloqueado = true;
+
+    if (bloqueado) {
+        adCheckCount++;
+        if (adCheckCount >= 2) {
+            clearInterval(timerInterval);
+            document.getElementById('adblock-overlay').classList.add('show');
+            return true;
+        }
+    } else {
+        adCheckCount = 0;
         statusEl.textContent = 'Arquivo sincronizado com sucesso!';
         statusBox.className = 'status-box ok';
     }
@@ -293,10 +302,8 @@ const timerInterval = setInterval(() => {
     fillEl.style.width = pct + '%';
     pctLbl.textContent = pct + '%';
 
-    // Checa adblock em 3 momentos
     if ([16, 10, 4].includes(tempo)) checkAdBlock();
 
-    // Status progressivo
     if (tempo === 15) statusEl.textContent = 'Verificando integridade do arquivo...';
     if (tempo === 10) statusEl.textContent = 'Sincronizando servidores VIP...';
     if (tempo === 5)  statusEl.textContent = 'Quase lá! Preparando liberação...';
@@ -317,8 +324,8 @@ const timerInterval = setInterval(() => {
     }
 }, 1000);
 
-// Checa adblock após carregamento
 setTimeout(checkAdBlock, 4000);
+setTimeout(checkAdBlock, 8000);
 </script>
 </body>
 </html>
