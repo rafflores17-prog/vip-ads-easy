@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso VIP - Verificando...</title>
 
-    <!-- Popunder / OnClick ads -->
-    <script>(function(s){s.dataset.zone='10875819',s.src='https://nap5k.com/tag.min.js'})([document.documentElement,document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-    <script>(function(s){s.dataset.zone='10875831',s.src='https://al5sm.com/tag.min.js'})([document.documentElement,document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <!-- AdCash AutoTag (substitui Adsterra popunder) -->
+    <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
+    <script type="text/javascript">
+        aclib.runAutoTag({ zoneId: '1emoxz4ggq' });
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -44,7 +46,6 @@
             align-items: center;
         }
 
-        /* ── TOPO FIXO ── */
         .topbar {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
             background: linear-gradient(135deg, #060b14 0%, #0c1a2e 100%);
@@ -59,7 +60,6 @@
         }
         .topbar-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
-        /* Indicador de etapas */
         .steps-track {
             display: flex; gap: 6px; margin-top: 8px; align-items: center;
         }
@@ -73,14 +73,12 @@
 
         .top-spacer { height: 110px; }
 
-        /* ── WRAPPER CENTRAL ── */
         .wrapper {
             width: 92%; max-width: 420px;
             display: flex; flex-direction: column; gap: 14px;
             padding-bottom: 60px;
         }
 
-        /* ── CARD ── */
         .card {
             background: var(--card);
             border: 1px solid var(--border);
@@ -88,7 +86,6 @@
             padding: 18px;
         }
 
-        /* Status box */
         .status-box {
             display: flex; align-items: center; gap: 10px;
             background: rgba(14,165,233,0.07);
@@ -112,7 +109,6 @@
         .status-label { font-weight: 600; font-size: 11px; color: var(--muted); text-transform: uppercase; }
         .status-txt { font-size: 13px; color: var(--text); }
 
-        /* Barra de progresso */
         .progress-wrap { margin-top: 14px; }
         .progress-label {
             display: flex; justify-content: space-between;
@@ -135,7 +131,6 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
         }
 
-        /* Dica rotativa */
         .dica-box {
             background: rgba(245,158,11,0.06);
             border: 1px solid rgba(245,158,11,0.2);
@@ -146,13 +141,12 @@
         }
         .dica-label { font-size: 10px; color: var(--yellow); font-weight: 700; text-transform: uppercase; margin-bottom: 3px; }
 
-        /* Slot de anúncio nativo */
+        /* Slot de banner AdCash */
         .ad-slot {
             min-height: 80px;
             display: flex; align-items: center; justify-content: center;
         }
 
-        /* ── BOTÃO PRINCIPAL ── */
         .btn-area {
             display: flex; flex-direction: column; align-items: center; gap: 10px;
         }
@@ -190,7 +184,6 @@
         }
         @keyframes pulse-green { 0%,100%{transform:scale(1)} 50%{transform:scale(1.02)} }
 
-        /* Botão isca */
         .btn-isca {
             display: block; width: 100%; padding: 12px;
             background: #1e293b; color: var(--muted);
@@ -203,18 +196,11 @@
         }
         .btn-isca:hover { background: #263148; color: var(--text); }
 
-        /* Timer */
-        .timer-txt {
-            font-size: 13px; color: var(--muted);
-            text-align: center;
-        }
-        .timer-num { font-family: 'Rajdhani', sans-serif; font-size: 26px; color: var(--blue); font-weight: 700; }
-
-        /* AdBlock alerta */
+        /* AdBlock alerta — melhorado */
         .adblock-overlay {
             display: none;
             position: fixed; inset: 0; z-index: 200;
-            background: rgba(6,11,20,0.97);
+            background: rgba(6,11,20,0.98);
             flex-direction: column; align-items: center; justify-content: center;
             padding: 30px; text-align: center;
         }
@@ -233,7 +219,6 @@
             text-transform: uppercase;
         }
 
-        /* Rodapé info */
         .footer-info {
             text-align: center; font-size: 11px; color: #334155;
             padding: 20px 0;
@@ -294,10 +279,13 @@
         <div id="dica-txt">Carregando...</div>
     </div>
 
-    <!-- AD NATIVO ADSTERRA -->
+    <!-- BANNER ADCASH 300x250 -->
     <div class="ad-slot" id="ad-main">
-        <script async data-cfasync="false" src="https://encouragingjawsordinarily.com/229016a21e1a937d798a4dd66405699f/invoke.js"></script>
-        <div id="container-229016a21e1a937d798a4dd66405699f"></div>
+        <div>
+            <script type="text/javascript">
+                aclib.runBanner({ zoneId: '11500158' });
+            </script>
+        </div>
     </div>
 
     <!-- BOTÃO ÁREA -->
@@ -305,21 +293,21 @@
         <button class="btn-main" id="btn-main">INICIAR VERIFICAÇÃO</button>
     </div>
 
-    <!-- AD BANNER INFERIOR -->
-    <div class="ad-slot" style="justify-content: center;">
-        <script>
-            atOptions = {'key':'a26a53bd8a24eb97c19e90af91d99fe8','format':'iframe','height':50,'width':320,'params':{}};
-        </script>
-        <script src="https://encouragingjawsordinarily.com/a26a53bd8a24eb97c19e90af91d99fe8/invoke.js"></script>
+    <!-- BANNER ADCASH INFERIOR 320x50 -->
+    <div class="ad-slot" style="justify-content: center;" id="ad-bottom">
+        <div>
+            <script type="text/javascript">
+                aclib.runBanner({ zoneId: '11499354' });
+            </script>
+        </div>
     </div>
 
-    <div class="footer-info">Sistema seguro · Verificação automática · vip-ads-easy.vercel.app</div>
+    <div class="footer-info">Sistema seguro · Verificação automática</div>
 </div>
 
 <script>
 // ── CONFIG ──────────────────────────────────────────────────
-const DIRECT_LINK = "https://encouragingjawsordinarily.com/w3wbwkzk9?key=9f27a177c445f12758a69d7273fe6f04";
-const BASE_URL    = "https://vip-ads-easy.vercel.app";
+const BASE_URL = window.location.origin;
 // ────────────────────────────────────────────────────────────
 
 const dicas = [
@@ -336,10 +324,8 @@ let d = params.get('d') || sessionStorage.getItem('vip_d');
 if (d) sessionStorage.setItem('vip_d', d);
 else document.body.innerHTML = "<h2 style='color:#ef4444;text-align:center;margin-top:30vh;font-family:sans-serif'>❌ Link Inválido</h2>";
 
-// Dica aleatória
 document.getElementById('dica-txt').textContent = dicas[Math.floor(Math.random() * dicas.length)];
 
-// Elementos
 const btn      = document.getElementById('btn-main');
 const fillEl   = document.getElementById('fill');
 const statusEl = document.getElementById('status-txt');
@@ -349,44 +335,54 @@ const pctLbl   = document.getElementById('pct-label');
 const btnArea  = document.getElementById('btn-area');
 const dots     = [document.getElementById('dot1'), document.getElementById('dot2'), document.getElementById('dot3')];
 
-// Progresso suave
 function setProgress(pct) {
     fillEl.style.width = pct + '%';
     pctLbl.textContent = pct + '%';
 }
 
-function setDot(etapa) { // 1,2,3
-    dots.forEach((d,i) => { d.className = 'step-dot'; });
+function setDot(etapa) {
+    dots.forEach(d => { d.className = 'step-dot'; });
     for(let i=0;i<etapa-1;i++) dots[i].classList.add('done');
     if(etapa<=3) dots[etapa-1].classList.add('active');
 }
 
-// Scroll suave até botão
 function scrollBtn() {
     setTimeout(() => btn.scrollIntoView({behavior:'smooth', block:'center'}), 350);
 }
 
-// ── DETECÇÃO ADBLOCK ────────────────────────────────────────
+// ── ANTI-ADBLOCK MELHORADO ───────────────────────────────────
 let adCheckAttempts = 0;
+
 function checkAdBlock() {
-    const c1 = document.getElementById('container-229016a21e1a937d798a4dd66405699f');
-    const bloqueado = !c1 || c1.offsetHeight < 5;
+    // Tenta detectar via elemento de anúncio ou via isca CSS
+    const adEl = document.getElementById('ad-main');
+    const isca = document.getElementById('ab-isca');
+
+    let bloqueado = false;
+
+    // Checa se o slot de anúncio tem altura real
+    if (adEl && adEl.offsetHeight < 10) bloqueado = true;
+
+    // Checa isca CSS (elemento que adblock costuma esconder)
+    if (isca && (isca.offsetHeight === 0 || isca.style.display === 'none')) bloqueado = true;
+
     if (bloqueado) {
         adCheckAttempts++;
         if (adCheckAttempts >= 2) {
             document.getElementById('adblock-overlay').classList.add('show');
             return true;
         }
+    } else {
+        adCheckAttempts = 0;
     }
     return false;
 }
 
 // ── ETAPAS ──────────────────────────────────────────────────
 
-// ETAPA 1
 btn.onclick = function() {
     if (checkAdBlock()) return;
-    window.open(DIRECT_LINK, '_blank');
+    // AutoTag AdCash já dispara o popunder — só abre a ação
     btn.disabled = true;
     btn.textContent = '⏳ AGUARDE...';
     statusEl.textContent = 'Etapa 1: Validando sua conexão...';
@@ -402,19 +398,16 @@ btn.onclick = function() {
         statusBox.className = 'status-box ok';
         setDot(2);
 
-        // Isca + botão etapa 2
         btnArea.innerHTML = `
-            <a href="${DIRECT_LINK}" target="_blank" class="btn-isca">⚡ SERVIDOR ALTERNATIVO (MAIS RÁPIDO)</a>
+            <a href="javascript:void(0)" onclick="aclib && aclib.runDirectLink && aclib.runDirectLink({zoneId:'1emoxz4ggq'})" class="btn-isca">⚡ SERVIDOR ALTERNATIVO (MAIS RÁPIDO)</a>
             <button class="btn-main" id="btn-main" onclick="etapa2()">CONFIRMAR — ETAPA 2</button>
         `;
         scrollBtn();
     }, 4000);
 };
 
-// ETAPA 2
 function etapa2() {
     if (checkAdBlock()) return;
-    window.open(DIRECT_LINK, '_blank');
     const b = document.getElementById('btn-main');
     b.disabled = true; b.textContent = '⏳ VERIFICANDO...';
     statusEl.textContent = 'Etapa 2: Sincronizando com o servidor VIP...';
@@ -431,17 +424,15 @@ function etapa2() {
         setDot(3);
 
         btnArea.innerHTML = `
-            <a href="${DIRECT_LINK}" target="_blank" class="btn-isca">🎯 VERIFICAR DISPONIBILIDADE (OPCIONAL)</a>
+            <a href="javascript:void(0)" onclick="aclib && aclib.runDirectLink && aclib.runDirectLink({zoneId:'1emoxz4ggq'})" class="btn-isca">🎯 VERIFICAR DISPONIBILIDADE (OPCIONAL)</a>
             <button class="btn-main" id="btn-main" onclick="etapaFinal()">✅ LIBERAR ACESSO VIP</button>
         `;
         scrollBtn();
     }, 4000);
 }
 
-// ETAPA FINAL
 function etapaFinal() {
     if (checkAdBlock()) return;
-    window.open(DIRECT_LINK, '_blank');
     const b = document.getElementById('btn-main');
     b.disabled = true; b.textContent = '🔓 DESBLOQUEANDO...';
     statusEl.textContent = 'Acesso VIP sendo liberado...';
@@ -468,8 +459,13 @@ function irParaSafe() {
     window.location.replace(safeUrl);
 }
 
-// Verificação adblock passiva após 5s
+// Verificação adblock passiva
 setTimeout(checkAdBlock, 5000);
+setTimeout(checkAdBlock, 9000);
 </script>
+
+<!-- Isca CSS para detecção de AdBlock -->
+<div id="ab-isca" class="ad ads adsbygoogle" style="height:1px;width:1px;position:absolute;left:-9999px;"></div>
+
 </body>
 </html>
